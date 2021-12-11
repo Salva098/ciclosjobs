@@ -53,9 +53,12 @@ namespace ciclosjobs.API
                 ServerVersion.AutoDetect(Configuration["ConnectionString:ciclojobsDB"])));
 
             //Aquí las inyecciones: Interfaz - Clase
-            services.AddScoped<IWeatherForecastBL, WeastherForecastBL>();
-            services.AddScoped<IUsuarioBL, UsuarioBL>();
-            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<IAlumnosRepository, AlumnosRepository>();
+            services.AddScoped<IEmpresaRepository,EmpresaRepository>();
+            services.AddScoped<IOfertasRepository, OfertaRepository>();
+            services.AddScoped<IAlumnoBL, AlumnoBL>();
+            services.AddScoped<IEmpresaBL, EmpresaBL>();
+            services.AddScoped<IOfertaBL, OfertaBL>();
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
 
         }

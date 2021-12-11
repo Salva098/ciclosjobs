@@ -1,3 +1,7 @@
+C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.AssemblyInfoInputs.cache
+C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.AssemblyInfo.cs
+C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.csproj.CoreCompileInputs.cache
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\bin\Debug\netcoreapp3.1\ciclojobs.BL.deps.json
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\bin\Debug\netcoreapp3.1\ciclojobs.BL.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\bin\Debug\netcoreapp3.1\ciclojobs.BL.pdb
@@ -6,10 +10,6 @@ C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\bin\Debug\netcoreapp3.1\cicl
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\bin\Debug\netcoreapp3.1\ciclojobs.DAL.pdb
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\bin\Debug\netcoreapp3.1\ciclosjobs.Core.pdb
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.csproj.AssemblyReference.cache
-C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.AssemblyInfoInputs.cache
-C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.AssemblyInfo.cs
-C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.csproj.CoreCompileInputs.cache
+C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.csproj.CopyComplete
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.pdb
-C:\Users\salva\source\repos\ciclosjobs\ciclojobs.BL\obj\Debug\netcoreapp3.1\ciclojobs.BL.csproj.CopyComplete

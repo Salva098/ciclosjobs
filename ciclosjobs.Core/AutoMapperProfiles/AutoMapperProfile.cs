@@ -11,8 +11,14 @@ namespace ciclosjobs.Core.AutoMapperProfiles
     {
         public AutoMapperProfile()
         {
-            CreateMap<Usuario, UsuarioDTO>();
-            CreateMap<UsuarioDTO, Usuario>();
+            CreateMap<Alumno, AlumnoDTO>();
+            CreateMap<AlumnoDTO, Alumno>();
+
+            CreateMap<Ofertas, OfertaDTO>();
+            CreateMap<OfertaDTO, Ofertas>();
+
+            CreateMap<Empresa, EmpresaDTO>();
+            CreateMap<EmpresaDTO, Empresa>();
         }
     }
 }
