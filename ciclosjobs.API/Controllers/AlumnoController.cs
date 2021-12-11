@@ -19,18 +19,47 @@ namespace ciclosjobs.API.Controllers
         }
 
         [HttpPost]
-        [Route("Register")]
-        public ActionResult Register(AlumnoDTO alumnoDTO)
+        public ActionResult Register(AlumnoDTORegistro alumnoDTO)
         {
-            AlumnoDTO alumno;
-            if ((alumno = alumnoBL.crearAlumno(alumnoDTO)) != null)
+            if (alumnoBL.CrearAlumno(alumnoDTO))
                 return Ok();
             else
                 return Unauthorized();
         }
+
+        [HttpPost]
+        [Route("Login")]
+        public ActionResult<int> Login(AlumnoDTOLogin alumnoDTO)
+        {
+            int alumnoid;
+            if ((alumnoid = alumnoBL.Login(alumnoDTO))!=-1)
+                return Ok(alumnoid);
+            else
+                return Unauthorized();
+        }
+
+        [HttpDelete]
+        public ActionResult EliminarAlumno(AlumnoDTOUpdate alumnoDTO)
+        {
+            
+            if (alumnoBL.EliminarAlumno(alumnoDTO))
+                return Ok();
+            else
+                return Unauthorized();
+        }
+
+        [HttpPut]
+        public ActionResult<int> Actualizar(AlumnoDTOUpdate alumnoDTO)
+        {
+            int alumnoid;
+            if ((alumnoid = alumnoBL.ActualizarAlumno(alumnoDTO)) != -1)
+                return Ok(alumnoid);
+            else
+                return Unauthorized();
+        }
+
         [HttpGet]
-        [Route("getAlumno")]
-        public ActionResult<AlumnoDTO>   get(int id)
+        public ActionResult<AlumnoDTO> get(int id)
         {
             AlumnoDTO alumno;
             if ((alumno = alumnoBL.ObtenerAlumno(id)) != null)
@@ -42,7 +71,7 @@ namespace ciclosjobs.API.Controllers
         [Route("getAllAlumno")]
         public ActionResult<AlumnoDTO> getall()
         {
-            var alumno = alumnoBL.obtenerTodosAlumnos();
+            var alumno = alumnoBL.ObtenerTodosAlumnos();
             if (alumno != null)
                 return Ok(alumno);
             else

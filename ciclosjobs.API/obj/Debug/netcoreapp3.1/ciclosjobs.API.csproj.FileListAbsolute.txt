@@ -51,7 +51,7 @@ C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\st
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\staticwebassets\ciclosjobs.API.StaticWebAssets.xml
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\scopedcss\bundle\ciclosjobs.API.styles.css
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.RazorTargetAssemblyInfo.cache
-C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.csproj.CopyComplete
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.pdb
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.genruntimeconfig.cache
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.csproj.CopyComplete
