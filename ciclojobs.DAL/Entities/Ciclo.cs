@@ -21,7 +21,7 @@ namespace ciclojobs.DAL.Entities
         public int idtipo { get; set; }
         [ForeignKey("idtipo")]
         public TipoCiclo TipoCiclo { get; set; }
-        public List<Ciclo_Oferta> ciclo_oferta { get; set; }
+     
 
     }
 }
