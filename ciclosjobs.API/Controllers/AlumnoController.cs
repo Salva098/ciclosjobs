@@ -18,6 +18,8 @@ namespace ciclosjobs.API.Controllers
             this.alumnoBL = alumnoBL;
         }
 
+
+
         [HttpPost]
         public ActionResult Register(AlumnoDTORegistro alumnoDTO)
         {
@@ -26,6 +28,8 @@ namespace ciclosjobs.API.Controllers
             else
                 return Unauthorized();
         }
+
+
 
         [HttpPost]
         [Route("Login")]
@@ -38,6 +42,8 @@ namespace ciclosjobs.API.Controllers
                 return Unauthorized();
         }
 
+
+
         [HttpDelete]
         public ActionResult EliminarAlumno(AlumnoDTOUpdate alumnoDTO)
         {
@@ -47,6 +53,8 @@ namespace ciclosjobs.API.Controllers
             else
                 return Unauthorized();
         }
+
+
 
         [HttpPut]
         public ActionResult<int> Actualizar(AlumnoDTOUpdate alumnoDTO)
@@ -58,6 +66,8 @@ namespace ciclosjobs.API.Controllers
                 return Unauthorized();
         }
 
+
+
         [HttpGet]
         public ActionResult<AlumnoDTO> get(int id)
         {
@@ -67,6 +77,9 @@ namespace ciclosjobs.API.Controllers
             else
                 return Unauthorized();
         }
+
+
+
         [HttpGet]
         [Route("getAllAlumno")]
         public ActionResult<AlumnoDTO> getall()

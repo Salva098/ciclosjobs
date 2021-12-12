@@ -23,6 +23,18 @@ namespace ciclosjobs.Core.AutoMapperProfiles
             CreateMap<Alumno, AlumnoDTOLogin>();
             CreateMap<AlumnoDTOLogin, Alumno>();
 
+            CreateMap<Empresa, EmpresaDTO>();
+            CreateMap<EmpresaDTO, Empresa>();
+
+            CreateMap<Empresa, EmpresaDTORegistro>();
+            CreateMap<EmpresaDTORegistro, Empresa>();
+
+            CreateMap<Empresa, EmpresaDTOLogin>();
+            CreateMap<EmpresaDTOLogin, Empresa>();
+
+            CreateMap<Empresa, EmpresaDTOUpdate>();
+            CreateMap<EmpresaDTOUpdate, Empresa>();
+
 
         }
     }
