@@ -81,9 +81,9 @@ namespace ciclojobs.BL.Implementations
             }
         }
 
-        public int Login(AlumnoDTOLogin alumnodto)
+        public int Login(LoginDTO alumnodto)
         {
-            var alumno = mapper.Map<AlumnoDTOLogin, Alumno>(alumnodto);
+            var alumno = mapper.Map<LoginDTO, Alumno>(alumnodto);
             alumno.contrasena = PasswordGenerator.Hash(alumno.contrasena);
             if (this.AlumnosRepository.Login(alumno))
             {

@@ -76,9 +76,9 @@ namespace ciclojobs.BL.Implementations
             }
         }
 
-        public int LoginEmpresa(EmpresaDTOLogin empresadto)
+        public int LoginEmpresa(LoginDTO empresadto)
         {
-            var empresa = mapper.Map<EmpresaDTOLogin, Empresa>(empresadto);
+            var empresa = mapper.Map<LoginDTO, Empresa>(empresadto);
             empresa.contrasena = PasswordGenerator.Hash(empresa.contrasena);
 
             if (this.EmpresaRepository.LoginEmpresa(empresa))

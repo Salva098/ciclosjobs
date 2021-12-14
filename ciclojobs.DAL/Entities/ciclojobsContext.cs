@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-
 #nullable disable
 
 namespace ciclojobs.DAL.Entities
@@ -12,14 +11,13 @@ namespace ciclojobs.DAL.Entities
         public DbSet<Alumno> Alumno { get; set; }
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Ofertas> Ofertas { get; set; }
-        public DbSet<Ciclo_Oferta> Ciclo_Oferta { get; set; }
         public DbSet<Provincias> Provincias { get; set; }
         public DbSet<Inscripciones> Inscripciones { get; set; }
         public DbSet<Ciclo> Ciclo { get; set; }
         public DbSet<FamiliaProfe> FamiliaProfe { get; set; }
         public DbSet<TipoCiclo> TipoCiclo { get; set; }
 
-
+        
         public ciclojobsContext()
         {
         }
@@ -41,29 +39,15 @@ namespace ciclojobs.DAL.Entities
         {
             modelBuilder.HasCharSet("utf8mb4")
                 .UseCollation("utf8mb4_0900_ai_ci");
+
          modelBuilder.HasCharSet("utf8mb4")
                 .UseCollation("utf8mb4_0900_ai_ci");
-            //modelBuilder.Entity<Inscripciones>()
-            //    .HasOne(c => c.Alumno)
-            //    .WithMany(i => i.inscripciones)
-            //    .HasForeignKey(ci => ci.idAlumno);
 
-            //modelBuilder.Entity<Inscripciones>()
-            //    .HasOne(c => c.Oferta)
-            //    .WithMany(i => i.inscripciones)
-            //    .HasForeignKey(ci => ci.OfertaId);
+            modelBuilder.Entity<Ofertas>()
+                .HasMany(co => co.ciclo)
+                .WithMany(co=> co.oferta);
 
-            //modelBuilder.Entity<Ciclo_Oferta>()
-            //    .HasOne(c => c.Oferta)
-            //    .WithMany(i => i.ciclo_oferta)
-            //    .HasForeignKey(ci => ci.OfertaId);
-
-            //modelBuilder.Entity<Ciclo_Oferta>()
-            //    .HasOne(c => c.ciclo)
-            //    .WithMany(i => i.ciclo_oferta)
-            //    .HasForeignKey(ci => ci.idCiclo);
-
-
+            base.OnModelCreating(modelBuilder);
             OnModelCreatingPartial(modelBuilder);
         }
 

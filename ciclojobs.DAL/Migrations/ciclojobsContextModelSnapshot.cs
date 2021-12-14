@@ -19,6 +19,21 @@ namespace ciclojobs.DAL.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 64)
                 .HasAnnotation("ProductVersion", "5.0.11");
 
+            modelBuilder.Entity("CicloOfertas", b =>
+                {
+                    b.Property<int>("cicloid")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ofertaid")
+                        .HasColumnType("int");
+
+                    b.HasKey("cicloid", "ofertaid");
+
+                    b.HasIndex("ofertaid");
+
+                    b.ToTable("CicloOfertas");
+                });
+
             modelBuilder.Entity("ciclojobs.DAL.Entities.Alumno", b =>
                 {
                     b.Property<int>("id")
@@ -86,27 +101,6 @@ namespace ciclojobs.DAL.Migrations
                     b.HasIndex("idtipo");
 
                     b.ToTable("Ciclo");
-                });
-
-            modelBuilder.Entity("ciclojobs.DAL.Entities.Ciclo_Oferta", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    b.Property<int>("OfertaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("idCiclo")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("OfertaId");
-
-                    b.HasIndex("idCiclo");
-
-                    b.ToTable("Ciclo_Oferta");
                 });
 
             modelBuilder.Entity("ciclojobs.DAL.Entities.Empresa", b =>
@@ -237,6 +231,21 @@ namespace ciclojobs.DAL.Migrations
                     b.ToTable("TipoCiclo");
                 });
 
+            modelBuilder.Entity("CicloOfertas", b =>
+                {
+                    b.HasOne("ciclojobs.DAL.Entities.Ciclo", null)
+                        .WithMany()
+                        .HasForeignKey("cicloid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ciclojobs.DAL.Entities.Ofertas", null)
+                        .WithMany()
+                        .HasForeignKey("ofertaid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("ciclojobs.DAL.Entities.Alumno", b =>
                 {
                     b.HasOne("ciclojobs.DAL.Entities.Ciclo", "ciclo")
@@ -273,25 +282,6 @@ namespace ciclojobs.DAL.Migrations
                     b.Navigation("familia");
 
                     b.Navigation("TipoCiclo");
-                });
-
-            modelBuilder.Entity("ciclojobs.DAL.Entities.Ciclo_Oferta", b =>
-                {
-                    b.HasOne("ciclojobs.DAL.Entities.Ofertas", "Oferta")
-                        .WithMany()
-                        .HasForeignKey("OfertaId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("ciclojobs.DAL.Entities.Ciclo", "ciclo")
-                        .WithMany("ciclo_oferta")
-                        .HasForeignKey("idCiclo")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("ciclo");
-
-                    b.Navigation("Oferta");
                 });
 
             modelBuilder.Entity("ciclojobs.DAL.Entities.Empresa", b =>
@@ -338,11 +328,6 @@ namespace ciclojobs.DAL.Migrations
             modelBuilder.Entity("ciclojobs.DAL.Entities.Alumno", b =>
                 {
                     b.Navigation("inscripciones");
-                });
-
-            modelBuilder.Entity("ciclojobs.DAL.Entities.Ciclo", b =>
-                {
-                    b.Navigation("ciclo_oferta");
                 });
 #pragma warning restore 612, 618
         }

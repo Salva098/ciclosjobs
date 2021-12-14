@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ciclojobs.DAL.Entities;
 using ciclosjobs.Core.DTO;
+using ciclosjobs.Core.DTO.CiclosDTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -20,8 +21,8 @@ namespace ciclosjobs.Core.AutoMapperProfiles
             CreateMap<AlumnoDTO, Alumno>();
             CreateMap<Alumno, AlumnoDTO>();
 
-            CreateMap<Alumno, AlumnoDTOLogin>();
-            CreateMap<AlumnoDTOLogin, Alumno>();
+            CreateMap<Alumno, LoginDTO>();
+            CreateMap<LoginDTO, Alumno>();
 
             CreateMap<Empresa, EmpresaDTO>();
             CreateMap<EmpresaDTO, Empresa>();
@@ -29,11 +30,29 @@ namespace ciclosjobs.Core.AutoMapperProfiles
             CreateMap<Empresa, EmpresaDTORegistro>();
             CreateMap<EmpresaDTORegistro, Empresa>();
 
-            CreateMap<Empresa, EmpresaDTOLogin>();
-            CreateMap<EmpresaDTOLogin, Empresa>();
+            CreateMap<Empresa, LoginDTO>();
+            CreateMap<LoginDTO, Empresa>();
 
             CreateMap<Empresa, EmpresaDTOUpdate>();
             CreateMap<EmpresaDTOUpdate, Empresa>();
+
+
+            CreateMap<Ofertas, OfertaDTO>();
+            CreateMap<OfertaDTO, Ofertas>();
+
+            CreateMap<Ofertas, OfertaDTORegistro>();
+            CreateMap<OfertaDTORegistro, Ofertas>();
+
+            CreateMap<Ofertas, OfertaDTOUpdate>();
+            CreateMap<OfertaDTOUpdate, Ofertas>();
+
+            CreateMap<Ciclo, CicloDTORegister>();
+            CreateMap<CicloDTORegister, Ciclo>();
+
+            CreateMap<Ciclo, CicloDTO>();
+            CreateMap<CicloDTO, Ciclo>();
+
+
 
 
         }

@@ -10,7 +10,7 @@ namespace ciclosjobs.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class EmpresaController : Controller
+    public class EmpresaController : ControllerBase
     {
         private IEmpresaBL empresaBL;
         public EmpresaController(IEmpresaBL EmpresaBL)
@@ -33,7 +33,7 @@ namespace ciclosjobs.API.Controllers
         [HttpPost]
         [Route("Login")]
 
-        public ActionResult<int> Login(EmpresaDTOLogin empresadto)
+        public ActionResult<int> Login(LoginDTO empresadto)
         {
             int id;
             if ((id=empresaBL.LoginEmpresa(empresadto))!=-1)
@@ -46,7 +46,8 @@ namespace ciclosjobs.API.Controllers
             }
         }
         [HttpGet]
-        public ActionResult<EmpresaDTO> Get(int id)
+        [Route("{id}")]
+        public ActionResult<EmpresaDTO> Get([FromRoute] int id)
         {
             var empresa = empresaBL.ObtenerEmpresa(id);
             if (empresa!=null)
@@ -61,7 +62,6 @@ namespace ciclosjobs.API.Controllers
 
 
         [HttpGet]
-        [Route("getAllEmpresa")]
         public ActionResult<List<EmpresaDTO>> GetAll()
         {
             var empresa = empresaBL.ObtenerTodosEmpresa();

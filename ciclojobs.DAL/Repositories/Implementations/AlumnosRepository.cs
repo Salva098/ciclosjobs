@@ -18,6 +18,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
         }
         public Alumno ActualizarAlumno(Alumno alumno)
         {
+            
             var u = _context.Alumno.Update(alumno);
             
             _context.SaveChanges();

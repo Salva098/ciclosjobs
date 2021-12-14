@@ -8,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace ciclosjobs.API.Controllers
 {
-     [Route("api/[controller]")]
-     [ApiController]
+    [Route("api/[controller]")]
+    [ApiController]
     public class AlumnoController : ControllerBase
     {
         public IAlumnoBL alumnoBL { get; set; }
@@ -33,10 +33,10 @@ namespace ciclosjobs.API.Controllers
 
         [HttpPost]
         [Route("Login")]
-        public ActionResult<int> Login(AlumnoDTOLogin alumnoDTO)
+        public ActionResult<int> Login(LoginDTO alumnoDTO)
         {
             int alumnoid;
-            if ((alumnoid = alumnoBL.Login(alumnoDTO))!=-1)
+            if ((alumnoid = alumnoBL.Login(alumnoDTO)) != -1)
                 return Ok(alumnoid);
             else
                 return Unauthorized();
@@ -47,7 +47,7 @@ namespace ciclosjobs.API.Controllers
         [HttpDelete]
         public ActionResult EliminarAlumno(AlumnoDTOUpdate alumnoDTO)
         {
-            
+
             if (alumnoBL.EliminarAlumno(alumnoDTO))
                 return Ok();
             else
@@ -69,7 +69,8 @@ namespace ciclosjobs.API.Controllers
 
 
         [HttpGet]
-        public ActionResult<AlumnoDTO> get(int id)
+        [Route("{id}")]
+        public ActionResult<AlumnoDTO> get([FromRoute] int id)
         {
             AlumnoDTO alumno;
             if ((alumno = alumnoBL.ObtenerAlumno(id)) != null)
@@ -81,7 +82,6 @@ namespace ciclosjobs.API.Controllers
 
 
         [HttpGet]
-        [Route("getAllAlumno")]
         public ActionResult<AlumnoDTO> getall()
         {
             var alumno = alumnoBL.ObtenerTodosAlumnos();
