@@ -2,6 +2,7 @@
 using ciclojobs.DAL.Entities;
 using ciclosjobs.Core.DTO;
 using ciclosjobs.Core.DTO.CiclosDTO;
+using ciclosjobs.Core.DTO.ProvinciasDTO;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -51,6 +52,9 @@ namespace ciclosjobs.Core.AutoMapperProfiles
 
             CreateMap<Ciclo, CicloDTO>();
             CreateMap<CicloDTO, Ciclo>();
+
+            CreateMap<Provincias,ProvinciasDTO>();
+            CreateMap<ProvinciasDTO, Provincias>();
 
 
 

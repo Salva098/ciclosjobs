@@ -39,11 +39,17 @@ namespace ciclosjobs.API
             //Para habilitar CORS en nuestra API
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                    builder => builder.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader());
+                options.AddPolicy("AllowSetOrigins", options =>
+                {
+
+                    options.AllowAnyOrigin();
+                    options.AllowAnyMethod();
+                    options.AllowAnyHeader();
+
+                });
+
             });
+
 
             AddSwagger(services);
 
@@ -60,6 +66,8 @@ namespace ciclosjobs.API
             services.AddScoped<IEmpresaBL, EmpresaBL>();
             services.AddScoped<ICicloRepository, CicloRepository>();
             services.AddScoped<IOfertaBL, OfertaBL>();
+            services.AddScoped<IProvinciasRepository, ProvinciasRepository>();
+            services.AddScoped<IProvinciasBL, ProvinciasBL>();
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
 
         }
@@ -83,6 +91,8 @@ namespace ciclosjobs.API
             });
 
             app.UseRouting();
+
+            app.UseCors("AllowSetOrigins");
 
             app.UseAuthorization();
 
