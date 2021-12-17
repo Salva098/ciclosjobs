@@ -8,6 +8,7 @@ namespace ciclojobs.BL.Contracts
     public interface ICicloBL
     {
         public CicloDTO ObtenerCiclo(int id);
+        public List<CicloDTO> ObtenerTodoCiclo();
 
     }
 }

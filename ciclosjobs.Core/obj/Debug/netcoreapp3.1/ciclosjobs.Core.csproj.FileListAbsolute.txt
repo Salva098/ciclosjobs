@@ -10,3 +10,4 @@ C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.Core\obj\Debug\netcoreapp3.1\c
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.Core\obj\Debug\netcoreapp3.1\ciclosjobs.Core.csproj.CoreCompileInputs.cache
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.Core\obj\Debug\netcoreapp3.1\ciclosjobs.Core.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.Core\obj\Debug\netcoreapp3.1\ciclosjobs.Core.pdb
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.Core\obj\Debug\netcoreapp3.1\ciclosjobs.Core.csproj.CopyComplete

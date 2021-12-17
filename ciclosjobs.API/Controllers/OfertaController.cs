@@ -49,6 +49,22 @@ namespace ciclosjobs.API.Controllers
         }
 
         [HttpGet]
+        [Route("Empresa/{id}")]
+        public ActionResult<List<OfertaDTO>> GetofertasEmpresa([FromRoute] int id)
+        {
+            var lista = ofertaBL.obtenerOfertasempresa(id);
+            if (lista.Count >= 1)
+            {
+                return Ok(lista);
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+        [HttpGet]
         [Route("{id}")]
         public OfertaDTO getOferta([FromRoute] int id)
         {

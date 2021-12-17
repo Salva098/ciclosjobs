@@ -36,7 +36,7 @@ namespace ciclosjobs.API.Controllers
         public ActionResult<int> Login(LoginDTO empresadto)
         {
             int id;
-            if ((id=empresaBL.LoginEmpresa(empresadto))!=-1)
+            if ((id     =empresaBL.LoginEmpresa(empresadto))!=-1)
             {
                 return Ok(id);
             }

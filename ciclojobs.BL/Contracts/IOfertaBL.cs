@@ -9,6 +9,7 @@ namespace ciclojobs.BL.Contracts
     {
         bool crearOferta(OfertaDTORegistro ofertadto);
         OfertaDTO obtenerOferta(int idoferta);
+        List<OfertaDTO> obtenerOfertasempresa(int idempresa);
         List<OfertaDTO> obtenerTodosOferta();
         bool eliminarOferta(OfertaDTORegistro ofertadto);
         bool actualizarOferta(OfertaDTOUpdate ofertadto);

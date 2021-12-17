@@ -8,5 +8,6 @@ namespace ciclojobs.DAL.Repositories.Contracts
     public interface ICicloRepository
     {
         public Ciclo ObtenerCiclo(int id);
+        public List<Ciclo> ObtenerTodoCiclos();
     }
 }

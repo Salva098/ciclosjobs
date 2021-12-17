@@ -24,5 +24,13 @@ namespace ciclojobs.DAL.Repositories.Implementations
                 .Include(c => c.TipoCiclo)
                 .FirstOrDefault(c => c.id == id);
         }
+
+        public List<Ciclo> ObtenerTodoCiclos()
+        {
+            return _context.Ciclo
+                .Include(c => c.familia)
+                .Include(c => c.TipoCiclo)
+                .ToList();
+        }
     }
 }

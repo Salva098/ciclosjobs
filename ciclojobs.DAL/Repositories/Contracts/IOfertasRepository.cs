@@ -8,6 +8,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
     public interface IOfertasRepository
     {
         bool existOfertas(Ofertas ofertas);
+        List<Ofertas> obtenerOfertasempresa(int idempresa);
         bool crearOfertas(Ofertas ofertas);
         Ofertas obtenerOfertas(int id);
         List<Ofertas> obtenerTodosOfertas();

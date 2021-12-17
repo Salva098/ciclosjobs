@@ -23,5 +23,11 @@ namespace ciclojobs.BL.Implementations
            return mapper.Map<Ciclo, CicloDTO > (CicloRepository.ObtenerCiclo(id));
 
         }
+
+        public List<CicloDTO> ObtenerTodoCiclo()
+        {
+           return mapper.Map<List<Ciclo>, List<CicloDTO>>(CicloRepository.ObtenerTodoCiclos());
+
+        }
     }
 }
