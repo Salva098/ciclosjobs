@@ -68,7 +68,7 @@ namespace ciclosjobs.API
             services.AddScoped<IOfertaBL, OfertaBL>();
             services.AddScoped<IProvinciasRepository, ProvinciasRepository>();
             services.AddScoped<IProvinciasBL, ProvinciasBL>();
-            services.AddScoped<ICicloBL, CicloBL>();
+            services.AddScoped<ICicloBL, CicloBL    >();
 
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
 

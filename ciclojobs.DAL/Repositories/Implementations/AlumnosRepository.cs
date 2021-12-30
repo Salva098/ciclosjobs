@@ -27,7 +27,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
 
         public Alumno CrearAlumnos(Alumno alumno)
         {
-            var u = _context.Alumno.Add(alumno);
+            var u = _context.Alumno.Add (alumno);
             _context.SaveChanges();
             return u.Entity;
         }
