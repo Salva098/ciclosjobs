@@ -9,6 +9,6 @@ namespace ciclojobs.BL.Contracts
     {
         public CicloDTO ObtenerCiclo(int id);
         public List<CicloDTO> ObtenerTodoCiclo();
-
+        public List<CicloDTO> GetCicloTipoFamilia(int idtipo, int idfamilia);
     }
 }

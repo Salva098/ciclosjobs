@@ -49,5 +49,21 @@ namespace ciclosjobs.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        [Route("{idtipo}/{idfamilia}")]
+        public ActionResult<OfertaDTO> GetCicloTipoFamilia([FromRoute] int idtipo, [FromRoute] int idfamilia)
+        {
+            var lista = cicloBL.GetCicloTipoFamilia(idtipo,idfamilia);
+            if (lista.Count >= 1)
+            {
+                return Ok(lista);
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
     }
 }

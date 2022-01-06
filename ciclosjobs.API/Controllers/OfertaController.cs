@@ -84,6 +84,15 @@ namespace ciclosjobs.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        [Route("Ciclo/{id}")]
+        public List<OfertaDTO> ObtenerOfertasCiclos([FromRoute] int id)
+        {
+            return ofertaBL.ObtenerOfertasCiclos(id);
+        }
+
+        
         [HttpDelete]
         public ActionResult Eliminar(OfertaDTOUpdate ofertadto)
         {

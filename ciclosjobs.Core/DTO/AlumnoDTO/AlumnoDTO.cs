@@ -10,6 +10,7 @@ namespace ciclosjobs.Core.DTO
         public int id { get; set; }
 
         public string nombre { get; set; }
+        public string email { get; set; }
 
 
         public string apellidos { get; set; }
@@ -18,7 +19,7 @@ namespace ciclosjobs.Core.DTO
         public Provincias provincia { get; set; }
         public string localidad { get; set; }
         public int id_ciclo { get; set; }
-        public Ciclo Ciclo { get; set; }
+        public CicloDTO Ciclo { get; set; }
         public double calificacion_media { get; set; }
         public string foto { get; set; }
     }

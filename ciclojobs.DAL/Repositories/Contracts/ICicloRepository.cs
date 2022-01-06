@@ -11,6 +11,6 @@ namespace ciclojobs.DAL.Repositories.Contracts
         public List<Ciclo> ObtenerTodoCiclos();
 
         public List<Ciclo> ObtenerCiclosBuscados(int familia, int tipoCiclo);
-
+        public List<Ciclo> GetCicloTipoFamilia(int idtipo, int idfamilia);
     }
 }

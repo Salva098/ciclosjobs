@@ -14,5 +14,6 @@ namespace ciclojobs.DAL.Repositories.Contracts
         List<Ofertas> obtenerTodosOfertas();
         bool eliminarOfertas(int ofertas);
         bool actualizarOfertas(Ofertas ofertas);
+        List<Ofertas> ObtenerOfertasCiclos(int id);
     }
 }

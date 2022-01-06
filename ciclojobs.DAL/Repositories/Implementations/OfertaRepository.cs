@@ -57,6 +57,21 @@ namespace ciclojobs.DAL.Repositories.Implementations
                 .FirstOrDefault(u => u.id == id);
         }
 
+        public List<Ofertas> ObtenerOfertasCiclos(int id)
+        {
+            var ciclo = _context.Ciclo.FirstOrDefault(u => u.id == id);
+            return _context.Ofertas
+                .Include(o => o.ciclo)
+                .Include(o => o.empresas)
+                .Include(o => o.empresas.provincias)
+                .Include(o => o.ciclo)
+                .ThenInclude(o => o.TipoCiclo)
+                .Include(o => o.ciclo)
+                .ThenInclude(o => o.familia)
+                .Where(u=> u.ciclo.Contains(ciclo))
+                .ToList();
+        }
+
         public List<Ofertas> obtenerOfertasempresa(int idempresa)
         {
             return _context.Ofertas

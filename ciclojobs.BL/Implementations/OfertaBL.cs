@@ -118,5 +118,11 @@ namespace ciclojobs.BL.Implementations
             return mapper.Map<List<Ofertas>, List<OfertaDTO>>(this.OfertasRepository.obtenerOfertasempresa(idempresa));
 
         }
+
+        public List<OfertaDTO> ObtenerOfertasCiclos(int id)
+        {
+            return mapper.Map<List<Ofertas>, List<OfertaDTO>>(this.OfertasRepository.ObtenerOfertasCiclos(id));
+
+        }
     }
 }

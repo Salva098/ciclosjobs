@@ -16,6 +16,16 @@ namespace ciclojobs.DAL.Repositories.Implementations
             this._context = context;
 
         }
+
+        public List<Ciclo> GetCicloTipoFamilia(int idtipo, int idfamilia)
+        {
+            return _context.Ciclo
+                .Include(c => c.familia)
+                .Include(c => c.TipoCiclo)
+                .Where(u => u.idtipo == idtipo && u.idfamiliaprofe == idfamilia)
+                .ToList();
+        }
+
         public Ciclo ObtenerCiclo(int id)
         {
             return _context.Ciclo

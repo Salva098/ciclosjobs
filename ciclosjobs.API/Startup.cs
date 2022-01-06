@@ -73,6 +73,8 @@ namespace ciclosjobs.API
             services.AddScoped<ITipoCicloBL, TipoCicloBL>();
             services.AddScoped<IFamiliaProfeRepository, FamiliaProfeRepository>();
             services.AddScoped<IFamiliaProfeBL, FamiliaProfeBL>();
+            services.AddScoped<IInscripcionesRepository, InscripcionesRepository>();
+            services.AddScoped<IInscripcioneBL, InscripcionesBL>();
 
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
 

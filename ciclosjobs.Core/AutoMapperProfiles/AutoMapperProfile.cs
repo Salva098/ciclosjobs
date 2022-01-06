@@ -3,6 +3,7 @@ using ciclojobs.DAL.Entities;
 using ciclosjobs.Core.DTO;
 using ciclosjobs.Core.DTO.CiclosDTO;
 using ciclosjobs.Core.DTO.FamiliaProfeDTO;
+using ciclosjobs.Core.DTO.InscripcionesDTO;
 using ciclosjobs.Core.DTO.ProvinciasDTO;
 using System;
 using System.Collections.Generic;
@@ -63,7 +64,14 @@ namespace ciclosjobs.Core.AutoMapperProfiles
             CreateMap<FamiliaProfe, FamiliaProfeDTO>();
             CreateMap<FamiliaProfeDTO, FamiliaProfe>();
 
+            CreateMap<Inscripciones, InscripcionesDTO>();
+            CreateMap<InscripcionesDTO, Inscripciones>();
+            
+            CreateMap<Inscripciones, InscripcionesDTOCreate>();
+            CreateMap<InscripcionesDTOCreate, Inscripciones>();
 
+            CreateMap<Inscripciones, InscripcionesDTOUpdate>();
+            CreateMap<InscripcionesDTOUpdate, Inscripciones>();
 
         }
     }

@@ -29,5 +29,11 @@ namespace ciclojobs.BL.Implementations
            return mapper.Map<List<Ciclo>, List<CicloDTO>>(CicloRepository.ObtenerTodoCiclos());
 
         }
+
+        public List<CicloDTO> GetCicloTipoFamilia(int idtipo, int idfamilia)
+        {
+           return mapper.Map<List<Ciclo>, List<CicloDTO>>(CicloRepository.GetCicloTipoFamilia(idtipo, idfamilia));
+            
+        }
     }
 }

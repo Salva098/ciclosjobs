@@ -19,5 +19,7 @@ namespace ciclojobs.DAL.Entities
         [ForeignKey("OfertaId")]
         public Ofertas Oferta { get; set; }
 
+        public DateTime FechaInscripcion { get; set; }
+        public String EstadoInscripción { get; set; }
     }
 }
