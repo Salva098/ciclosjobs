@@ -10,7 +10,7 @@ namespace ciclojobs.BL.Contracts
         public int CrearInscripcion(InscripcionesDTOCreate inscripcion);
         public InscripcionesDTO GetInscripciones(int id);
         public List<InscripcionesDTO> GetAllInscripciones();
-        public bool DeleteInscripciones(InscripcionesDTOUpdate inscripciones);
+        public bool DeleteInscripciones(int inscripciones);
         public bool UpdateInscripciones(InscripcionesDTOUpdate inscripciones);
 
         public List<InscripcionesDTO> GetInscripcionesFamilia(int idfamilias);
@@ -18,6 +18,7 @@ namespace ciclojobs.BL.Contracts
         public List<InscripcionesDTO> GetInscripcionesfamiliaTipo(int familia, int idtipo);
         public List<InscripcionesDTO> GetInscripcionesCiclo(int idCiclo);
         public List<InscripcionesDTO> GetInscripcionesEmpresa(int Empresa);
-
+        public int Checkinscripcion(int idAlumno, int idOferta);
+        public List<InscripcionesDTO> GetInscripcionesAlumno(int id);
     }
 }

@@ -23,9 +23,9 @@ namespace ciclojobs.BL.Implementations
             return this.InscripcionesRepository.CrearInscripcion(this.mapper.Map<InscripcionesDTOCreate, Inscripciones >(inscripcion));
         }
 
-        public bool DeleteInscripciones(InscripcionesDTOUpdate inscripciones)
+        public bool DeleteInscripciones(int inscripciones)
         {
-            return this.InscripcionesRepository.DeleteInscripciones( mapper.Map<InscripcionesDTOUpdate,Inscripciones>(inscripciones));
+            return this.InscripcionesRepository.DeleteInscripciones(inscripciones);
         }
 
         public List<InscripcionesDTO> GetAllInscripciones()
@@ -68,6 +68,17 @@ namespace ciclojobs.BL.Implementations
         public bool UpdateInscripciones(InscripcionesDTOUpdate inscripciones)
         {
             return InscripcionesRepository.UpdateInscripciones( mapper.Map<InscripcionesDTOUpdate, Inscripciones>(inscripciones)) ;
+
+        }
+
+        public int Checkinscripcion(int idAlumno, int idOferta)
+        {
+            return InscripcionesRepository.Checkinscripcion(idAlumno, idOferta);
+        }
+
+        public List<InscripcionesDTO> GetInscripcionesAlumno(int id)
+        {
+            return mapper.Map<List<Inscripciones>, List<InscripcionesDTO>>(InscripcionesRepository.GetInscripcionesAlumno(id));
 
         }
     }

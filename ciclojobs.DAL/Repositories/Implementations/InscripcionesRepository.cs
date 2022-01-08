@@ -30,11 +30,12 @@ namespace ciclojobs.DAL.Repositories.Implementations
             }
         }
 
-        public bool DeleteInscripciones(Inscripciones inscripciones)
+        public bool DeleteInscripciones(int id)
         {
-            if (_context.Inscripciones.Any(u => u.idAlumno == inscripciones.idAlumno && u.OfertaId == inscripciones.OfertaId))
+            if (_context.Inscripciones.Any(u=>u.Id==id))
             {
-                _context.Inscripciones.Remove(inscripciones);
+
+                _context.Inscripciones.Remove(_context.Inscripciones.First(u => u.Id == id));
                 _context.SaveChanges();
 
                 return true;
@@ -211,6 +212,39 @@ namespace ciclojobs.DAL.Repositories.Implementations
                 .Include(u => u.Oferta.ciclo)
                 .ThenInclude(u => u.TipoCiclo)
                 .Where(u => ofertas.Contains(u.Oferta)).ToList();
+        }
+
+        public int Checkinscripcion(int idAlumno, int idOferta)
+        {
+            var id = _context.Inscripciones.Where(u => u.idAlumno == idAlumno && u.OfertaId == idOferta).FirstOrDefault();
+            if (id==null)
+            {
+
+            return -1;
+            }
+            else
+            {
+                return id.Id;
+            }
+        }
+
+        public List<Inscripciones> GetInscripcionesAlumno(int id)
+        {
+            return _context.Inscripciones
+                 .Include(u => u.Alumno)
+                 .Include(u => u.Alumno.provincia)
+                 .Include(u => u.Alumno.ciclo)
+                 .Include(u => u.Alumno.ciclo.familia)
+                 .Include(u => u.Alumno.ciclo.TipoCiclo)
+                 .Include(u => u.Oferta)
+                 .Include(u => u.Oferta.empresas)
+                 .Include(u => u.Oferta.empresas.provincias)
+                 .Include(u => u.Oferta.ciclo)
+                 .Include(u => u.Oferta.ciclo)
+                 .ThenInclude(u => u.familia)
+                 .Include(u => u.Oferta.ciclo)
+                 .ThenInclude(u => u.TipoCiclo)
+                 .Where(u => u.idAlumno == id).ToList();
         }
     }
 }

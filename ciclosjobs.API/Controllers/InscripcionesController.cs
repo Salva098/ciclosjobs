@@ -34,8 +34,22 @@ namespace ciclosjobs.API.Controllers
             }
         }
 
-
         [HttpGet]
+        [Route("Alumno/{idAlumno}/{idOferta}")]
+        public ActionResult<int> Checkinscripcion([FromRoute] int idAlumno, [FromRoute] int idOferta)
+        {
+            int id = InscripcioneBL.Checkinscripcion(idAlumno, idOferta);
+            if (id!=-1)
+            {
+                return Ok(id);
+            }
+            else
+            {
+                return BadRequest(id);
+            }
+        }
+
+            [HttpGet]
         [Route("{id}")]
         public ActionResult<InscripcionesDTO> GetInscripciones([FromRoute] int id)
         {
@@ -66,14 +80,14 @@ namespace ciclosjobs.API.Controllers
             }
         }
         [HttpDelete]
-        public ActionResult DeleteInscripciones(InscripcionesDTOUpdate inscripciones) {
+        public ActionResult DeleteInscripciones(int id) {
 
-            var inscripcion = InscripcioneBL.DeleteInscripciones(inscripciones);
+            var inscripcion = InscripcioneBL.DeleteInscripciones(id);
             if (inscripcion)
             {
                 return Ok();
 
-            }
+            }   
             else
             {
                 return BadRequest();
@@ -157,6 +171,24 @@ namespace ciclosjobs.API.Controllers
                 return BadRequest();
             }
         }
+
+        [HttpGet]
+        [Route("Alumno/{id}")]
+        public ActionResult<List<InscripcionesDTO>> GetInscripcionesAlumno([FromRoute] int id)
+        {
+            var lista = InscripcioneBL.GetInscripcionesAlumno(id);
+            if (lista.Count >= 1)
+            {
+                return Ok(lista);
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+
         [HttpGet]
         [Route("Empresa/{id}")]
         public ActionResult<List<InscripcionesDTO>> GetInscripcionesEmpresa([FromRoute] int id)

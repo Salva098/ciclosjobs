@@ -10,7 +10,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
         public int CrearInscripcion(Inscripciones inscripcion);
         public Inscripciones GetInscripciones(int id);
         public List<Inscripciones> GetAllInscripciones();
-        public bool DeleteInscripciones(Inscripciones inscripciones);
+        public bool DeleteInscripciones(int inscripciones);
         public bool UpdateInscripciones(Inscripciones inscripciones);
 
         public List<Inscripciones> GetInscripcionesFamilia(int idfamilias);
@@ -18,7 +18,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
         public List<Inscripciones> GetInscripcionesfamiliaTipo(int familia,int idtipo);
         public List<Inscripciones> GetInscripcionesCiclo(int idCiclo);
         public List<Inscripciones> GetInscripcionesEmpresa(int Empresa);
-
-
+        public int Checkinscripcion(int idAlumno, int idOferta);
+        public List<Inscripciones> GetInscripcionesAlumno(int id);
     }
 }
