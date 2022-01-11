@@ -8,7 +8,7 @@ namespace ciclojobs.DAL.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "EstadoInscripción",
+                name: "EstadoInscripcion",
                 table: "Inscripciones",
                 type: "longtext",
                 nullable: true,
@@ -26,7 +26,7 @@ namespace ciclojobs.DAL.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "EstadoInscripción",
+                name: "EstadoInscripcion",
                 table: "Inscripciones");
 
             migrationBuilder.DropColumn(

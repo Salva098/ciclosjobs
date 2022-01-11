@@ -6,6 +6,7 @@ using System.Text;
 
 namespace ciclojobs.DAL.Entities
 {
+ 
     public class Inscripciones
     {
         [Key]
@@ -20,6 +21,6 @@ namespace ciclojobs.DAL.Entities
         public Ofertas Oferta { get; set; }
 
         public DateTime FechaInscripcion { get; set; }
-        public String EstadoInscripción { get; set; }
+        public String EstadoInscripcion { get; set; }
     }
 }

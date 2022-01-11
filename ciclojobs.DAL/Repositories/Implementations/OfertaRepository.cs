@@ -44,6 +44,22 @@ namespace ciclojobs.DAL.Repositories.Implementations
             return _context.Ofertas.Any(u => u.nombre == ofertas.nombre && u.idempresas == ofertas.idempresas);
         }
 
+        public List<Ofertas> getOfertasNoCaducadas()
+        {
+            DateTime time = DateTime.Now;
+            return _context.Ofertas
+                .Include(o => o.ciclo)
+                .Include(o => o.empresas)
+                .Include(o => o.empresas.provincias)
+                .Include(o => o.ciclo)
+                .ThenInclude(o => o.TipoCiclo)
+                .Include(o => o.ciclo)
+                .ThenInclude(o => o.familia)
+                .Where(u=> u.fecha_fin>=time)
+                .ToList();
+
+        }
+
         public Ofertas obtenerOfertas(int id)
         {
             return _context.Ofertas

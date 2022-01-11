@@ -15,6 +15,6 @@ namespace ciclosjobs.Core.DTO.InscripcionesDTO
         public OfertaDTO Oferta { get; set; }
 
         public DateTime FechaInscripcion { get; set; }
-        public String EstadoInscripción { get; set; }
+        public String EstadoInscripcion { get; set; }
     }
 }

@@ -34,6 +34,24 @@ namespace ciclosjobs.API.Controllers
         }
 
         [HttpGet]
+        [Route("NoCaducado")]
+
+        public ActionResult<List<OfertaDTO>> getOfertasNoCaducadas()
+        {
+            var lista = ofertaBL.getOfertasNoCaducadas();
+            if (lista.Count >= 1)
+            {
+                return Ok(lista);
+
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
+
+
+        [HttpGet]
         public ActionResult<List<OfertaDTO>> getAll()
         {
             var lista = ofertaBL.obtenerTodosOferta();
