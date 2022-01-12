@@ -34,11 +34,11 @@ namespace ciclosjobs.API.Controllers
         }
 
         [HttpGet]
-        [Route("NoCaducado")]
+        [Route("NoCaducado/{id}")]
 
-        public ActionResult<List<OfertaDTO>> getOfertasNoCaducadas()
+        public ActionResult<List<OfertaDTO>> getOfertasNoCaducadas([FromRoute] int id)
         {
-            var lista = ofertaBL.getOfertasNoCaducadas();
+            var lista = ofertaBL.getOfertasNoCaducadas(id);
             if (lista.Count >= 1)
             {
                 return Ok(lista);

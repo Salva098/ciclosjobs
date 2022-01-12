@@ -14,6 +14,6 @@ namespace ciclojobs.BL.Contracts
         bool eliminarOferta(OfertaDTORegistro ofertadto);
         bool actualizarOferta(OfertaDTOUpdate ofertadto);
         List<OfertaDTO> ObtenerOfertasCiclos(int id);
-        List<OfertaDTO> getOfertasNoCaducadas();
+        List<OfertaDTO> getOfertasNoCaducadas(int id);
     }
 }
