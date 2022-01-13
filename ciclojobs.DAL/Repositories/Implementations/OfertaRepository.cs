@@ -57,7 +57,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
                 .ThenInclude(o => o.TipoCiclo)
                 .Include(o => o.ciclo)
                 .ThenInclude(o => o.familia)
-                .Where(u=> u.fecha_fin>=time && u.ciclo.Contains(ciclo))
+                .Where(u=> u.fecha_fin>=time && u.fecha_inicio <= time && u.ciclo.Contains(ciclo))
                 .ToList();
 
         }
