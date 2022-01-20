@@ -7,7 +7,7 @@ namespace ciclojobs.BL.Contracts
 {
     public interface IAlumnoBL
     {
-        int Login(LoginDTO alumnodto);
+        AlumnoDTO Login(LoginDTO alumnodto);
         bool CrearAlumno(AlumnoDTORegistro alumnodto);
         AlumnoDTO ObtenerAlumno(int alumnoid);
         List<AlumnoDTO> ObtenerTodosAlumnos();

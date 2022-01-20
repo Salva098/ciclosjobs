@@ -9,7 +9,7 @@ namespace ciclojobs.BL.Contracts
     public interface IEmpresaBL
     {
         bool CrearEmpresa(EmpresaDTORegistro empresadto);
-        int LoginEmpresa(LoginDTO empresa);
+        EmpresaDTO LoginEmpresa(LoginDTO empresa);
         EmpresaDTO ObtenerEmpresa(int empresaid);
         List<EmpresaDTO> ObtenerTodosEmpresa();
         bool EliminarEmpresa(EmpresaDTOUpdate empresadto);

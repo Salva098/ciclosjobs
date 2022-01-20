@@ -1,5 +1,6 @@
 ﻿using ciclojobs.BL.Contracts;
 using ciclosjobs.Core.DTO.InscripcionesDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,8 @@ namespace ciclosjobs.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class InscripcionesController : ControllerBase
     {
         public IInscripcioneBL InscripcioneBL { get; set; }

@@ -81,18 +81,18 @@ namespace ciclojobs.BL.Implementations
             }
         }
 
-        public int Login(LoginDTO alumnodto)
+        public AlumnoDTO Login(LoginDTO alumnodto)
         {
             var alumno = mapper.Map<LoginDTO, Alumno>(alumnodto);
             alumno.contrasena = PasswordGenerator.Hash(alumno.contrasena);
             if (this.AlumnosRepository.Login(alumno))
             {
 
-            return this.AlumnosRepository.BuscaPorEmail(alumno).id;
+            return mapper.Map<Alumno, AlumnoDTO>(this.AlumnosRepository.BuscaPorEmail(alumno));
             }
             else
             {
-                return -1;
+                return null;
             }
         }
 

@@ -1,5 +1,6 @@
 ﻿using ciclojobs.BL.Contracts;
 using ciclosjobs.Core.DTO.ProvinciasDTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,6 +12,8 @@ namespace ciclosjobs.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [AllowAnonymous]
+
     public class ProvinciasController : ControllerBase
     {
         private IProvinciasBL ProvinciasBL;

@@ -9,6 +9,7 @@ C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\ci
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.Internal.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
@@ -24,8 +25,14 @@ C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Mi
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\MySqlConnector.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Pomelo.EntityFrameworkCore.MySql.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
@@ -33,6 +40,7 @@ C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Sw
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\System.Runtime.CompilerServices.Unsafe.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\ciclojobs.BL.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\ciclojobs.DAL.dll
@@ -54,4 +62,3 @@ C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ci
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.pdb
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.genruntimeconfig.cache
-C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.csproj.CopyComplete

@@ -1,5 +1,7 @@
 ﻿using ciclojobs.BL.Contracts;
 using ciclosjobs.Core.DTO;
+using ciclosjobs.Core.Security;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,14 +12,20 @@ namespace ciclosjobs.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
+
     public class EmpresaController : ControllerBase
     {
         private IEmpresaBL empresaBL;
-        public EmpresaController(IEmpresaBL EmpresaBL)
+        public IJwtBearer JwtBearer { get; set; }
+        public EmpresaController(IEmpresaBL EmpresaBL, IJwtBearer JwtBearer)
         {
             this.empresaBL = EmpresaBL;
+            this.JwtBearer = JwtBearer;
         }
         [HttpPost]
+        [AllowAnonymous]
+
         public ActionResult Register(EmpresaDTORegistro empresadto)
         {
             if (empresaBL.CrearEmpresa(empresadto))
@@ -32,13 +40,16 @@ namespace ciclosjobs.API.Controllers
 
         [HttpPost]
         [Route("Login")]
+        [AllowAnonymous]
 
-        public ActionResult<int> Login(LoginDTO empresadto)
+
+        public ActionResult Login(LoginDTO empresadto)
         {
-            int id;
-            if ((id     =empresaBL.LoginEmpresa(empresadto))!=-1)
+            EmpresaDTO empresa;
+            if ((empresa = empresaBL.LoginEmpresa(empresadto))!=null)
             {
-                return Ok(id);
+                Response.Headers.Add("token", JwtBearer.GenerateJWTTokenEmpresa(empresa));
+                return Ok();
             }
             else
             {
