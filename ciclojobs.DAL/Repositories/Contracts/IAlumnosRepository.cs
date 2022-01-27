@@ -7,7 +7,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
 {
     public interface IAlumnosRepository
     {
-        Alumno BuscaPorEmail(Alumno Alumno);
+        Alumno BuscaPorEmail(string Alumno);
         bool Login(Alumno alumno);
         bool ExistAlumnos(Alumno alumno);
         Alumno CrearAlumnos(Alumno alumno);
@@ -15,5 +15,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
         List<Alumno> ObtenerTodosAlumnos();
         bool EliminarAlumno(Alumno alumno);
         Alumno ActualizarAlumno(Alumno alumno);
+        bool VerificarCode(string email, string code);
+        bool VerificarCode(string email);
     }
 }

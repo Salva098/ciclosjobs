@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
@@ -21,5 +22,10 @@ namespace ciclojobs.DAL.Entities
 
         public string localidad { get; set; }
         public string direccion { get; set; }
+        public string codeverify { get; set; }
+        [DefaultValue(false)]
+
+        public bool verificado { get; set; }
+
     }
 }

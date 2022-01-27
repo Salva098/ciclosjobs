@@ -1,5 +1,6 @@
 ﻿using ciclojobs.BL.Contracts;
 using ciclosjobs.Core.DTO;
+using ciclosjobs.Core.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -18,14 +19,18 @@ namespace ciclosjobs.API.Controllers
     {
 
         public IOfertaBL ofertaBL { get; set; }
-        public OfertaController(IOfertaBL ofertaBL)
+        public IJwtBearer JwtBearer { get; set; }
+        public OfertaController(IOfertaBL ofertaBL, IJwtBearer JwtBearer)
         {
             this.ofertaBL = ofertaBL;
+            this.JwtBearer = JwtBearer;
         }
 
         [HttpPost]
         public ActionResult CrearOferta(OfertaDTORegistro ofertadto)
         {
+            int empresaid = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
+            ofertadto.idempresas = empresaid;
             if (ofertaBL.crearOferta(ofertadto))
             {
                 return Ok();
@@ -70,10 +75,12 @@ namespace ciclosjobs.API.Controllers
         }
 
         [HttpGet]
-        [Route("Empresa/{id}")]
-        public ActionResult<List<OfertaDTO>> GetofertasEmpresa([FromRoute] int id)
+        [Route("Empresa")]
+        public ActionResult<List<OfertaDTO>> GetofertasEmpresa()
         {
-            var lista = ofertaBL.obtenerOfertasempresa(id);
+            int empresaid = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
+
+            var lista = ofertaBL.obtenerOfertasempresa(empresaid);
             if (lista.Count >= 1)
             {
                 return Ok(lista);

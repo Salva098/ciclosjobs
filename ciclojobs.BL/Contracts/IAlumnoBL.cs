@@ -13,5 +13,10 @@ namespace ciclojobs.BL.Contracts
         List<AlumnoDTO> ObtenerTodosAlumnos();
         bool EliminarAlumno(AlumnoDTOUpdate alumnodto);
         int ActualizarAlumno(AlumnoDTOUpdate alumnodto);
+        bool GenerarCode(string email);
+        bool VerificarCode(string email, string code);
+        AlumnoDTO GetAlumnoEmail(string email);
+        bool VerificarAccount(string email, string code);
+        bool VerificarCode(string email);
     }
 }

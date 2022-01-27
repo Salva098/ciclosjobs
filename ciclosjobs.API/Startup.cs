@@ -5,6 +5,7 @@ using ciclojobs.DAL.Repositories.Contracts;
 using ciclojobs.DAL.Repositories.Implementations;
 using ciclosjobs.Core.AutoMapperProfiles;
 using ciclosjobs.Core.Security;
+using ciclosjobs.Core.Security.EmailSender;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
@@ -39,6 +40,7 @@ namespace ciclosjobs.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            string[] exponseHeaders = { "token" };
             //Para habilitar CORS en nuestra API
             services.AddCors(options =>
             {
@@ -48,6 +50,7 @@ namespace ciclosjobs.API
                     options.AllowAnyOrigin();
                     options.AllowAnyMethod();
                     options.AllowAnyHeader();
+                    options.WithExposedHeaders(exponseHeaders);
 
                 });
 
@@ -102,7 +105,7 @@ namespace ciclosjobs.API
             services.AddScoped<IInscripcionesRepository, InscripcionesRepository>();
             services.AddScoped<IInscripcioneBL, InscripcionesBL>();
             services.AddScoped<IJwtBearer, JwtBearer>();
-
+            services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
 
         }

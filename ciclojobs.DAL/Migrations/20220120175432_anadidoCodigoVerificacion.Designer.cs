@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ciclojobs.DAL.Entities;
 
 namespace ciclojobs.DAL.Migrations
 {
     [DbContext(typeof(ciclojobsContext))]
-    partial class ciclojobsContextModelSnapshot : ModelSnapshot
+    [Migration("20220120175432_anadidoCodigoVerificacion")]
+    partial class anadidoCodigoVerificacion
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,9 +75,6 @@ namespace ciclojobs.DAL.Migrations
                     b.Property<string>("nombre")
                         .HasColumnType("longtext");
 
-                    b.Property<bool>("verificado")
-                        .HasColumnType("tinyint(1)");
-
                     b.HasKey("id");
 
                     b.HasIndex("id_ciclo");
@@ -135,9 +134,6 @@ namespace ciclojobs.DAL.Migrations
 
                     b.Property<string>("nombre")
                         .HasColumnType("longtext");
-
-                    b.Property<bool>("verificado")
-                        .HasColumnType("tinyint(1)");
 
                     b.HasKey("id");
 

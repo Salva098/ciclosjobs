@@ -1,5 +1,6 @@
 ﻿using ciclojobs.BL.Contracts;
 using ciclosjobs.Core.DTO.InscripcionesDTO;
+using ciclosjobs.Core.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +18,11 @@ namespace ciclosjobs.API.Controllers
     public class InscripcionesController : ControllerBase
     {
         public IInscripcioneBL InscripcioneBL { get; set; }
-        public InscripcionesController(IInscripcioneBL InscripcioneBL)
+        public IJwtBearer JwtBearer { get; set; }
+        public InscripcionesController(IInscripcioneBL InscripcioneBL, IJwtBearer JwtBearer)
         {
             this.InscripcioneBL = InscripcioneBL;
+            this.JwtBearer = JwtBearer;
         }
 
         [HttpGet]
@@ -31,16 +34,17 @@ namespace ciclosjobs.API.Controllers
                 return Ok(lista);
 
             }
-            else
+            else 
             {
                 return BadRequest();
             }
         }
 
         [HttpGet]
-        [Route("Alumno/{idAlumno}/{idOferta}")]
-        public ActionResult<int> Checkinscripcion([FromRoute] int idAlumno, [FromRoute] int idOferta)
+        [Route("CheckAlumno/{idOferta}")]
+        public ActionResult<int> Checkinscripcion( [FromRoute] int idOferta)
         {
+            int idAlumno = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
             int id = InscripcioneBL.Checkinscripcion(idAlumno, idOferta);
             if (id!=-1)
             {
@@ -71,6 +75,8 @@ namespace ciclosjobs.API.Controllers
         [HttpPost]
         public ActionResult<int> CreateInscripciones(InscripcionesDTOCreate inscripcion)
         {
+            int id = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
+            inscripcion.idAlumno = id;
             var inscripciones = InscripcioneBL.CrearInscripcion(inscripcion);
             if (inscripciones!=-1)
             {
@@ -176,9 +182,11 @@ namespace ciclosjobs.API.Controllers
         }
 
         [HttpGet]
-        [Route("Alumno/{id}")]
-        public ActionResult<List<InscripcionesDTO>> GetInscripcionesAlumno([FromRoute] int id)
+        [Route("Alumno")]
+        public ActionResult<List<InscripcionesDTO>> GetInscripcionesAlumno()
         {
+            int id = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
+
             var lista = InscripcioneBL.GetInscripcionesAlumno(id);
             if (lista.Count >= 1)
             {
@@ -193,9 +201,11 @@ namespace ciclosjobs.API.Controllers
 
 
         [HttpGet]
-        [Route("Empresa/{id}")]
-        public ActionResult<List<InscripcionesDTO>> GetInscripcionesEmpresa([FromRoute] int id)
+        [Route("Empresa")]
+        public ActionResult<List<InscripcionesDTO>> GetInscripcionesEmpresa()
         {
+            int id = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
+
             var lista = InscripcioneBL.GetInscripcionesEmpresa(id);
             if (lista.Count >= 1)
             {

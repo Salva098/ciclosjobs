@@ -14,6 +14,11 @@ namespace ciclojobs.BL.Contracts
         List<EmpresaDTO> ObtenerTodosEmpresa();
         bool EliminarEmpresa(EmpresaDTOUpdate empresadto);
         int ActualizarEmpresa(EmpresaDTOUpdate empresadto);
-
+        bool GenerarCode(string email);
+        bool VerificarCode(string email, string code);
+        EmpresaDTO GetEmpresaEmail(string email);
+        bool CheckAccount(string email);
+        bool VerificarAccount(string email, string code);
+        void SendEmail(string emailalumno, int idEmpresa, string tituloOferta, string mensaje);
     }
 }

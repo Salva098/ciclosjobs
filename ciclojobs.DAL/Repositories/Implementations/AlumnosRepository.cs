@@ -73,12 +73,32 @@ namespace ciclojobs.DAL.Repositories.Implementations
                 .ToList();
         }
 
-        public Alumno BuscaPorEmail(Alumno Alumno)
+        public Alumno BuscaPorEmail(string email)
         {
-
-            return _context.Alumno.FirstOrDefault(a => a.email == Alumno.email);
+            if (_context.Alumno.Any(u=> u.email==email))
+            {
+                return _context.Alumno
+                    .Include(p => p.provincia)
+                    .Include(p => p.ciclo.familia)
+                    .Include(c => c.ciclo.TipoCiclo)
+                    .Include(c => c.ciclo).AsNoTracking()
+                    .FirstOrDefault(a => a.email == email);
+            }
+            else
+            {
+                return null;
+            }
 
         }
 
+        public bool VerificarCode(string email, string code)
+        {
+            return _context.Alumno.Any(u => u.email == email && u.codeverify == code);
+        }
+
+        public bool VerificarCode(string email)
+        {
+            return _context.Alumno.Where(u => u.email == email).Select(u => u.verificado).FirstOrDefault();
+        }
     }
 }

@@ -10,3 +10,4 @@ C:\Users\salva\source\repos\ciclosjobs\ciclojobs.DAL\obj\Debug\netcoreapp3.1\cic
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.DAL\obj\Debug\netcoreapp3.1\ciclojobs.DAL.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.DAL\obj\Debug\netcoreapp3.1\ciclojobs.DAL.pdb
 C:\Users\salva\source\repos\ciclosjobs\ciclojobs.DAL\obj\Debug\netcoreapp3.1\ciclojobs.DAL.genruntimeconfig.cache
+C:\Users\salva\source\repos\ciclosjobs\ciclojobs.DAL\obj\Debug\netcoreapp3.1\ciclojobs.DAL.csproj.AssemblyReference.cache

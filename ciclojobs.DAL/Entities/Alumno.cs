@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel;
 
 namespace ciclojobs.DAL.Entities
 {
@@ -26,6 +27,10 @@ namespace ciclojobs.DAL.Entities
         public Ciclo ciclo { get; set; }
         public double calificacion_media { get; set; }
         public string foto { get; set; }
+        public string codeverify { get; set; }
+
+        [DefaultValue(false)]
+        public bool verificado { get; set; }
 
         public List<Inscripciones> inscripciones { get; set; }
     }

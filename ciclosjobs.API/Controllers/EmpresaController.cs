@@ -23,9 +23,10 @@ namespace ciclosjobs.API.Controllers
             this.empresaBL = EmpresaBL;
             this.JwtBearer = JwtBearer;
         }
+
+
         [HttpPost]
         [AllowAnonymous]
-
         public ActionResult Register(EmpresaDTORegistro empresadto)
         {
             if (empresaBL.CrearEmpresa(empresadto))
@@ -41,26 +42,26 @@ namespace ciclosjobs.API.Controllers
         [HttpPost]
         [Route("Login")]
         [AllowAnonymous]
-
-
         public ActionResult Login(LoginDTO empresadto)
         {
             EmpresaDTO empresa;
             if ((empresa = empresaBL.LoginEmpresa(empresadto))!=null)
             {
-                Response.Headers.Add("token", JwtBearer.GenerateJWTTokenEmpresa(empresa));
+                var a = JwtBearer.GenerateJWTTokenEmpresa(empresa);
+                Response.Headers.Add("token",a);
                 return Ok();
             }
             else
             {
-                return BadRequest(-1);
+                return BadRequest();
             }
         }
         [HttpGet]
-        [Route("{id}")]
-        public ActionResult<EmpresaDTO> Get([FromRoute] int id)
+        [Route("ID")]
+        public ActionResult<EmpresaDTO> Get()
         {
-            var empresa = empresaBL.ObtenerEmpresa(id);
+
+            var empresa = empresaBL.ObtenerEmpresa(JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString()));
             if (empresa!=null)
             {
                 return Ok(empresa);
@@ -68,6 +69,7 @@ namespace ciclosjobs.API.Controllers
             else
             {
                 return BadRequest();
+            
             }
         }
 
@@ -87,6 +89,23 @@ namespace ciclosjobs.API.Controllers
             
         }
 
+        [HttpGet]
+        [Route("EmailEmpresa")]
+        [AllowAnonymous]
+
+        public ActionResult<EmpresaDTO> GetEmpresaEmail(string email)
+        {
+            EmpresaDTO empresa = empresaBL.GetEmpresaEmail(email);
+            if (empresa != null)
+            {
+                return Ok(empresa);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
 
 
         [HttpDelete]
@@ -95,6 +114,7 @@ namespace ciclosjobs.API.Controllers
             if (empresaBL.EliminarEmpresa(empresadto))
             {
                 return Ok();
+
             }
             else
             {
@@ -103,15 +123,89 @@ namespace ciclosjobs.API.Controllers
         }
 
         [HttpPut]
+        [AllowAnonymous]
         public ActionResult Update(EmpresaDTOUpdate empresadto)
         {
             int empresaid;
             if ((empresaid = empresaBL.ActualizarEmpresa(empresadto)) != -1)
                 return Ok(empresaid);
             else
-                return Unauthorized();
+                return BadRequest();
         }
 
+        [HttpPost]
+        [Route("GenerarCode")]
+        [AllowAnonymous]
+        public ActionResult GenerarCode(String email)
+        {
+            if (empresaBL.GenerarCode(email))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpPost]
+        [Route("CheckAccount")]
+        [AllowAnonymous]
+        public ActionResult CheckAccount(String email)
+        {
+            if (empresaBL.CheckAccount(email))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpPost]
+        [Route("VerificarCode")]
+        [AllowAnonymous]
+        public ActionResult VerificarCode(String email, string code)
+        {
+            if (empresaBL.VerificarCode(email, code))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+        [HttpPost]
+        [Route("SendEmail")]
+        
+        public ActionResult SendEmail(string emailalumno, string tituloOferta, string mensaje)
+        {
+            var empresa = empresaBL.ObtenerEmpresa(JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString()));
+
+            empresaBL.SendEmail(emailalumno, empresa.id, tituloOferta, mensaje);
+            return Ok();
+
+        }
+        [HttpPost]
+        [Route("VerificarAccount")]
+        [AllowAnonymous]
+        public ActionResult VerificarAccount(String email, string code)
+        {
+            if (empresaBL.VerificarAccount(email, code))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
 
 
 

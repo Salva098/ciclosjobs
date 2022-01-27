@@ -33,7 +33,7 @@ namespace ciclosjobs.Core.Security
                 issuer: Configuration["Jwt:Issuer"],
                 audience: Configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddYears(1),
+                expires: DateTime.Now.AddSeconds(5),
                 signingCredentials: credentials
             );
             return new JwtSecurityTokenHandler().WriteToken(token);
@@ -55,7 +55,7 @@ namespace ciclosjobs.Core.Security
                 issuer: Configuration["Jwt:Issuer"],
                 audience: Configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.Now.AddYears(1),
+                expires: DateTime.Now.AddSeconds(20),
                 signingCredentials: credentials
             );
             return new JwtSecurityTokenHandler().WriteToken(token);

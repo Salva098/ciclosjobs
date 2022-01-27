@@ -17,5 +17,8 @@ namespace ciclojobs.DAL.Repositories.Contracts
         List<Empresa> ObtenerTodosEmpresa();
         bool EliminarEmpresa(Empresa empresa);
         Empresa ActualizarEmpresa(Empresa empresa);
+        Empresa BuscaPorEmail(string email);
+        bool VerificarCode(string email, string code);
+        bool CheckAccount(string email);
     }
 }

@@ -27,7 +27,6 @@ namespace ciclosjobs.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-
         public ActionResult Register(AlumnoDTORegistro alumnoDTO)
         {
             if (alumnoBL.CrearAlumno(alumnoDTO))
@@ -55,6 +54,85 @@ namespace ciclosjobs.API.Controllers
                 return BadRequest();
         }
 
+        [HttpPost]
+        [Route("GenerarCode")]
+        [AllowAnonymous]
+        public ActionResult GenerarCode(String email)
+        {
+            if (alumnoBL.GenerarCode(email))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+        [HttpGet]
+        [Route("Email")]
+        [AllowAnonymous]
+        public ActionResult<AlumnoDTO> GetAlumnoEmail(String email)
+        {
+            AlumnoDTO alumno;
+            if ((alumno=alumnoBL.GetAlumnoEmail(email))!=null)
+            {
+                return Ok(alumno);
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpPost]
+        [Route("VerificarCode")]
+        [AllowAnonymous]
+        public ActionResult VerificarCode(String email,string code)
+        {
+            if (alumnoBL.VerificarCode(email,code))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
+        [HttpPost]
+        [Route("CheckAccount")]
+        [AllowAnonymous]
+        public ActionResult CheckAccount(String email)
+        {
+            if (alumnoBL.VerificarCode(email))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+        [HttpPost]
+        [Route("VerificarAccount")]
+        [AllowAnonymous]
+        public ActionResult VerificarAccount(String email, string code)
+        {
+            if (alumnoBL.VerificarAccount(email, code))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+
+        }
+
 
 
         [HttpDelete]
@@ -70,6 +148,7 @@ namespace ciclosjobs.API.Controllers
 
 
         [HttpPut]
+        [AllowAnonymous]
         public ActionResult<int> Actualizar(AlumnoDTOUpdate alumnoDTO)
         {
             int alumnoid;
@@ -82,9 +161,10 @@ namespace ciclosjobs.API.Controllers
 
 
         [HttpGet]
-        [Route("{id}")]
-        public ActionResult<AlumnoDTO> get([FromRoute] int id)
+        [Route("ID")]
+        public ActionResult<AlumnoDTO> get()
         {
+            int id = JwtBearer.GetAlumnoIdFromToken(Request.Headers["Authorization"].ToString());
             AlumnoDTO alumno;
             if ((alumno = alumnoBL.ObtenerAlumno(id)) != null)
                 return Ok(alumno);

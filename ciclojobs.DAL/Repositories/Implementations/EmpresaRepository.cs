@@ -26,6 +26,24 @@ namespace ciclojobs.DAL.Repositories.Implementations
 
         }
 
+        public Empresa BuscaPorEmail(string email)
+        {
+            if (_context.Empresa.Any(u=>u.email==email))
+            {
+            return _context.Empresa.FirstOrDefault(u => u.email == email);
+
+            }
+            else
+            {
+                return null;
+            }
+        }
+
+        public bool CheckAccount(string email)
+        {
+            return _context.Empresa.Where(u => u.email == email).Select(u => u.verificado).FirstOrDefault();
+        }
+
         public bool CrearEmpresa(Empresa empresa)
         {
             var u = _context.Empresa.Add(empresa);
@@ -64,6 +82,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
         {
             return _context.Empresa
                 .Include(e => e.provincias)
+                .AsNoTracking()
                 .FirstOrDefault(e => e.email == Email);
         }
 
@@ -72,6 +91,12 @@ namespace ciclojobs.DAL.Repositories.Implementations
             return _context.Empresa
                 .Include(e => e.provincias)
                 .ToList();
+        }
+
+        public bool VerificarCode(string email, string code)
+        {
+            return _context.Empresa.Any(u => u.email == email && u.codeverify == code);
+            
         }
     }
 }
