@@ -35,8 +35,8 @@ namespace ciclosjobs.API.Controllers
             contratoDTO = ContractoBL.Stripe(contratoDTO);
             var options = new SessionCreateOptions
             {
-                SuccessUrl = "",
-                CancelUrl = "",
+                SuccessUrl = "https://dashboard.stripe.com/test/webhooks/we_1KYTBOHssVim9VHFvIXZteFM",
+                CancelUrl = "http://51.254.98.153/",
                 PaymentMethodTypes = new List<string>
                   {
                     "card",
@@ -69,7 +69,7 @@ namespace ciclosjobs.API.Controllers
         public async Task<IActionResult> Index()
         {
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
-            string endpointSecret = Configuration["Stripe:PublishableKey"];
+            string endpointSecret = "whsec_UapspHK3jgNQK70sJwQCPIiWqBHH8nfx";
             try
             {
                 var stripeEvent = EventUtility.ConstructEvent(json,Request.Headers["Stripe-Signature"], endpointSecret);
