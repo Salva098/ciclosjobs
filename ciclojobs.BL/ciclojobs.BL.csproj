@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Stripe.net" Version="39.92.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\ciclojobs.DAL\ciclojobs.DAL.csproj" />
     <ProjectReference Include="..\ciclosjobs.Core\ciclosjobs.Core.csproj" />
   </ItemGroup>

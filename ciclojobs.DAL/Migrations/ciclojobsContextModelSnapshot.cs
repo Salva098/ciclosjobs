@@ -115,6 +115,9 @@ namespace ciclojobs.DAL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("StripeID")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("codeverify")
                         .HasColumnType("longtext");
 

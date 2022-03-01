@@ -46,6 +46,12 @@
       "frameworks": {
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[39.92.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -209,6 +215,10 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[5.0.2, )"
+            },
+            "Stripe.net": {
+              "target": "Package",
+              "version": "[39.92.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",

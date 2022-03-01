@@ -12,5 +12,6 @@ namespace ciclosjobs.Core.DTO
         public int idprovincias { get; set; }
         public string localidad { get; set; }
         public string direccion { get; set; }
+        public string StripeID { get; set; }
     }
 }

@@ -22,10 +22,12 @@ namespace ciclojobs.DAL.Entities
 
         public string localidad { get; set; }
         public string direccion { get; set; }
+        public string StripeID { get; set; }
         public string codeverify { get; set; }
         [DefaultValue(false)]
 
         public bool verificado { get; set; }
+
 
     }
 }
