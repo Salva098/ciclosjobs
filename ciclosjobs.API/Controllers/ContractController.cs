@@ -63,43 +63,39 @@ namespace ciclosjobs.API.Controllers
         }
 
 
+            const string endpointSecret = "whsec_5pfSRogsJoLLjxUe96VZuRHGTqbqTZFT";
         [HttpPost]
         [AllowAnonymous]
         [Route("Webhook")]
         public async Task<IActionResult> Index()
         {
+
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
-            string endpointSecret = "whsec_5pfSRogsJoLLjxUe96VZuRHGTqbqTZFT";
             try
             {
-                var stripeEvent = EventUtility.ConstructEvent(json,Request.Headers["Stripe-Signature"], endpointSecret);
-                stripeEvent = EventUtility.ParseEvent(json);
+                var stripeEvent = EventUtility.ConstructEvent(json,
+                    Request.Headers["Stripe-Signature"], endpointSecret);
 
-                if (stripeEvent.Type == Events.InvoicePaid)
+                // Handle the event
+                if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
-                    var invoice = stripeEvent.Data.Object as Invoice;
-                    ContractoBL.PagoSuccess(invoice);
                 }
-                else if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
+                else if (stripeEvent.Type == Events.InvoicePaid)
                 {
-                    var subscription = stripeEvent.Data.Object as Subscription;
-                    ContractoBL.SubscriptionCreated(subscription);
                 }
                 else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
                 {
-                    var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                    ContractoBL.PosiblePagoCancelacion(paymentIntent);
                 }
+                // ... handle other event types
                 else
                 {
-                    // Unexpected event type
                     Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
                 }
+
                 return Ok();
             }
             catch (StripeException e)
             {
-                Console.WriteLine(e);
                 return BadRequest();
             }
         }
