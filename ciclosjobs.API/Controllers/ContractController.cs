@@ -69,7 +69,7 @@ namespace ciclosjobs.API.Controllers
         public async Task<IActionResult> Index()
         {
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
-            string endpointSecret = "whsec_UapspHK3jgNQK70sJwQCPIiWqBHH8nfx";
+            string endpointSecret = "whsec_5pfSRogsJoLLjxUe96VZuRHGTqbqTZFT";
             try
             {
                 var stripeEvent = EventUtility.ConstructEvent(json,Request.Headers["Stripe-Signature"], endpointSecret);
