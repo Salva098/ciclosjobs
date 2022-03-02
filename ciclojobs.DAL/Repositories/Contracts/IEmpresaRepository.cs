@@ -18,6 +18,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
         bool EliminarEmpresa(Empresa empresa);
         Empresa ActualizarEmpresa(Empresa empresa);
         Empresa BuscaPorEmail(string email);
+        Empresa ObtenerEmpresaStripeID(string StripeId);
         bool VerificarCode(string email, string code);
         bool CheckAccount(string email);
     }

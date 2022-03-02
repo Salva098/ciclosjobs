@@ -17,6 +17,7 @@ namespace ciclojobs.DAL.Entities
         public DbSet<FamiliaProfe> FamiliaProfe { get; set; }
         public DbSet<TipoCiclo> TipoCiclo { get; set; }
         public DbSet<Facturas> Facturas { get; set; }
+        public DbSet<Contrato> Contrato { get; set; }
 
 
 

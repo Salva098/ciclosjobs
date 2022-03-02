@@ -1,4 +1,6 @@
-﻿using ciclojobs.BL.Contracts;
+﻿using AutoMapper;
+using ciclojobs.BL.Contracts;
+using ciclojobs.DAL.Entities;
 using ciclojobs.DAL.Repositories.Contracts;
 using ciclosjobs.Core.DTO.ContractoDTO;
 using Microsoft.Extensions.Configuration;
@@ -11,17 +13,23 @@ namespace ciclojobs.BL.Implementations
 {
     public class ContractoBL : IContractoBL
     {
+        public IMapper mapper { get; set; }
         public IConfiguration Configuration { get; set; }
+        public IContratoRepository ContratoRepository { get; set; }
         public IEmpresaRepository empresaRepository { get; set; }
-        public ContractoBL(IConfiguration Configuration, IEmpresaRepository empresaRepository)
+        public ContractoBL(IConfiguration Configuration, IContratoRepository ContratoRepository, IEmpresaRepository empresaRepository, IMapper mapper)
         {
+            this.mapper = mapper;
             this.Configuration = Configuration;
+            this.ContratoRepository = ContratoRepository;
             this.empresaRepository = empresaRepository;
         }
 
         public void PagoSuccess(Invoice invoice)
         {
-            throw new NotImplementedException();
+
+            //invoice.Lines.Data[0].Period.Start;
+            //invoice.Lines.Data[0].Period.End;
         }
 
         public void PosiblePagoCancelacion(PaymentIntent paymentIntent)
@@ -54,7 +62,24 @@ namespace ciclojobs.BL.Implementations
 
         public void SubscriptionCreated(Subscription subscription)
         {
-            throw new NotImplementedException();
+
+
+            var contrato = new Contrato
+            {
+                FechaBaja = subscription.CurrentPeriodEnd,
+                FehchaAlta = subscription.CurrentPeriodStart,
+                StripeId = subscription.Id,
+                EmpresaID = empresaRepository.ObtenerEmpresaStripeID(subscription.CustomerId).id,
+                EstadoContrato = ContratoEstado.incomplete,
+                
+
+            };
+            ContratoRepository.CrearFactura(contrato);
+        }
+
+        public bool ExistContract(ContratoDTO contratoDTO)
+        {
+            return ContratoRepository.ExistContract(mapper.Map<ContratoDTO, Contrato>(contratoDTO));
         }
     }
 }

@@ -6,10 +6,10 @@ using System.Text;
 
 namespace ciclojobs.DAL.Entities
 {
-    public class ContratoEstado
+    public enum ContratoEstado
     {
-        [Key]
-        public int EstadoID { get; set; }
-        public string NombreEstado { get; set; }
+        incomplete,
+        succeeded,
+        paid
     }
 }

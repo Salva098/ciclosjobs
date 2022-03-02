@@ -25,6 +25,21 @@ namespace ciclojobs.DAL.Repositories.Implementations
 
 
         }
+        public Empresa ObtenerEmpresaStripeID(string StripeId)
+        {
+
+            if (_context.Empresa.Any(u => u.StripeID == StripeId))
+            {
+                return _context.Empresa.FirstOrDefault(u => u.StripeID == StripeId);
+
+            }
+            else
+            {
+                return null;
+            }
+
+
+        }
 
         public Empresa BuscaPorEmail(string email)
         {

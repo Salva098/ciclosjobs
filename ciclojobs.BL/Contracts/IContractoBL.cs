@@ -12,5 +12,6 @@ namespace ciclojobs.BL.Contracts
         void PagoSuccess(Invoice invoice);
         void SubscriptionCreated(Subscription subscription);
         void PosiblePagoCancelacion(PaymentIntent paymentIntent);
+        bool ExistContract(ContratoDTO contratoDTO);
     }
 }

@@ -32,9 +32,14 @@ namespace ciclosjobs.API.Controllers
         [AllowAnonymous]
         public ActionResult<string> CrearPago(ContratoDTO contratoDTO)
         {
+            if (ContractoBL.ExistContract(contratoDTO))
+            {
+
+
             contratoDTO = ContractoBL.Stripe(contratoDTO);
             var options = new SessionCreateOptions
             {
+               
                 SuccessUrl = "https://dashboard.stripe.com/test/webhooks/we_1KYTBOHssVim9VHFvIXZteFM",
                 CancelUrl = "http://51.254.98.153/",
                 PaymentMethodTypes = new List<string>
@@ -60,6 +65,11 @@ namespace ciclosjobs.API.Controllers
             var service = new SessionService();
             var session = service.Create(options);
             return Ok(session.Url);
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
 
@@ -79,12 +89,19 @@ namespace ciclosjobs.API.Controllers
                 // Handle the event
                 if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
+                    var subscription = stripeEvent.Data.Object as Subscription;
+                    ContractoBL.SubscriptionCreated(subscription);
                 }
                 else if (stripeEvent.Type == Events.InvoicePaid)
                 {
+                    var invoice = stripeEvent.Data.Object as Invoice;
+                    ContractoBL.PagoSuccess(invoice);
                 }
+                //Esto no
                 else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
                 {
+                    var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
+                    ContractoBL.PosiblePagoCancelacion(paymentIntent);
                 }
                 // ... handle other event types
                 else
