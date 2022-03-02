@@ -18,7 +18,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
         public void CrearContrato(Contrato contrato)
         {
             _context.Contrato.Add(contrato);
-            Console.WriteLine("aniadido en la base de datos")
+            Console.WriteLine("aniadido en la base de datos");
             _context.SaveChanges();
         }
 
