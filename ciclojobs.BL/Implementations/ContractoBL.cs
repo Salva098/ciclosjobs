@@ -63,13 +63,13 @@ namespace ciclojobs.BL.Implementations
         public void SubscriptionCreated(Subscription subscription)
         {
 
-
+            var idempresa = empresaRepository.ObtenerEmpresaStripeID(subscription.CustomerId).id;
             var contrato = new Contrato
             {
                 FechaBaja = subscription.CurrentPeriodEnd,
                 FehchaAlta = subscription.CurrentPeriodStart,
                 StripeId = subscription.Id,
-                EmpresaID = empresaRepository.ObtenerEmpresaStripeID(subscription.CustomerId).id,
+                EmpresaID = idempresa,
                 EstadoContrato = ContratoEstado.incomplete,
                 
 

@@ -109,7 +109,7 @@ namespace ciclosjobs.API.Controllers
                     Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
                 }
 
-                return Ok();
+                return Ok("Hola aniadido "+ stripeEvent.Type);
             }
             catch (StripeException e)
             {
