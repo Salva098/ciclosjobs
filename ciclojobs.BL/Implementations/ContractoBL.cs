@@ -74,8 +74,8 @@ namespace ciclojobs.BL.Implementations
                 
 
             };
-            Console.WriteLine("contrato creado")
-            ContratoRepository.CrearFactura(contrato);
+            Console.WriteLine("contrato creado");
+            ContratoRepository.CrearContrato(contrato);
         }
 
         public bool ExistContract(ContratoDTO contratoDTO)

@@ -15,9 +15,10 @@ namespace ciclojobs.DAL.Repositories.Implementations
             this._context = _context;
         }
 
-        public void CrearFactura(Contrato contrato)
+        public void CrearContrato(Contrato contrato)
         {
             _context.Contrato.Add(contrato);
+            Console.WriteLine("aniadido en la base de datos")
             _context.SaveChanges();
         }
 
