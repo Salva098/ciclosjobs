@@ -74,6 +74,7 @@ namespace ciclojobs.BL.Implementations
                 
 
             };
+            Console.WriteLine("contrato creado")
             ContratoRepository.CrearFactura(contrato);
         }
 
