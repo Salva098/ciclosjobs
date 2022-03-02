@@ -120,8 +120,6 @@ namespace ciclosjobs.API
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseHttpsRedirection();
     
             
             app.UseSwagger();
