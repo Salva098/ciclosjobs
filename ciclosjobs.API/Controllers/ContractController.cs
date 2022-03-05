@@ -73,12 +73,12 @@ namespace ciclosjobs.API.Controllers
         }
 
 
-            const string endpointSecret = "whsec_5pfSRogsJoLLjxUe96VZuRHGTqbqTZFT";
         [HttpPost]
         [AllowAnonymous]
         [Route("Webhook")]
         public async Task<IActionResult> Index()
         {
+          string endpointSecret = "whsec_5pfSRogsJoLLjxUe96VZuRHGTqbqTZFT";
 
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
             try
