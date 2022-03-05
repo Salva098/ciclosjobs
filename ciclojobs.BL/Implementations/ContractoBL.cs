@@ -90,7 +90,7 @@ namespace ciclojobs.BL.Implementations
 
         public bool ExistContractEmpresa(int empresaid)
         {
-            return ContratoRepository.ExistContractÉmpresa(empresaid);
+            return ContratoRepository.ExistContractEmpresa(empresaid);
         }
     }
 }
