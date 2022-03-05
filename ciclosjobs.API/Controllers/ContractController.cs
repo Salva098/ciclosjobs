@@ -32,8 +32,6 @@ namespace ciclosjobs.API.Controllers
         [AllowAnonymous]
         public ActionResult<string> CrearPago(ContratoDTO contratoDTO)
         {
-            if (ContractoBL.ExistContract(contratoDTO))
-            {
 
 
             contratoDTO = ContractoBL.Stripe(contratoDTO);
@@ -65,11 +63,8 @@ namespace ciclosjobs.API.Controllers
             var service = new SessionService();
             var session = service.Create(options);
             return Ok(session.Url);
-            }
-            else
-            {
-                return BadRequest();
-            }
+          
+          
         }
 
 
