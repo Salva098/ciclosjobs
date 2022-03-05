@@ -20,7 +20,7 @@ namespace ciclosjobs.API
             Host.CreateDefaultBuilder(args)
                 .ConfigureAppConfiguration((builderContext, config) =>
                 {
-                    //config.AddJsonFile("ciclosjobs.API/appsettings.json", optional: false);
+                    config.AddJsonFile("ciclosjobs.API/appsettings.json", optional: false);
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
