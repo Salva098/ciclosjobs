@@ -40,7 +40,7 @@ namespace ciclosjobs.API.Controllers
             var options = new SessionCreateOptions
             {
                
-                SuccessUrl = "https://dashboard.stripe.com/test/webhooks/we_1KYTBOHssVim9VHFvIXZteFM",
+                SuccessUrl = "http://51.254.98.153/",
                 CancelUrl = "http://51.254.98.153/",
                 PaymentMethodTypes = new List<string>
                   {
