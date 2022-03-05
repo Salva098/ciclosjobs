@@ -83,8 +83,10 @@ namespace ciclosjobs.API.Controllers
             var json = await new StreamReader(HttpContext.Request.Body).ReadToEndAsync();
             try
             {
-                var stripeEvent = EventUtility.ConstructEvent(json,
+                var stripeEvent = EventUtility.ParseEvent(json);
+                stripeEvent = EventUtility.ConstructEvent(json,
                     Request.Headers["Stripe-Signature"], endpointSecret);
+
                 Console.WriteLine("Tipo del evento "+stripeEvent.Type);
                 // Handle the event
                 if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
