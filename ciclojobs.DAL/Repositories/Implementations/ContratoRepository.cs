@@ -29,7 +29,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
             _context.SaveChanges();
         }
 
-        public bool ExistContractÉmpresa(int empresaid)
+        public bool ExistContractEmpresa(int empresaid)
         {
            return  _context.Contrato.Any(u => u.EmpresaID == empresaid && u.FechaBaja >DateTime.Now);
         }

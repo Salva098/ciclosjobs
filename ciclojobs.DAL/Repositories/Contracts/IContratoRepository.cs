@@ -7,7 +7,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
 {
     public interface IContratoRepository
     {
-        bool ExistContractÉmpresa(int empresaid);
+        bool ExistContractEmpresa(int empresaid);
         void CrearContrato(Contrato contrato);
         Contrato ObtenerContratStripeID(string customerId);
         void CrearFactura(Facturas factura);

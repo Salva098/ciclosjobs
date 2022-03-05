@@ -88,7 +88,7 @@ namespace ciclojobs.BL.Implementations
             ContratoRepository.CrearContrato(contrato);
         }
 
-        public bool ExistContractÉmpresa(int empresaid)
+        public bool ExistContractEmpresa(int empresaid)
         {
             return ContratoRepository.ExistContractÉmpresa(empresaid);
         }

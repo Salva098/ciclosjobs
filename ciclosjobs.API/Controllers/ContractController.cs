@@ -32,7 +32,8 @@ namespace ciclosjobs.API.Controllers
         [AllowAnonymous]
         public ActionResult<string> CrearPago(ContratoDTO contratoDTO)
         {
-            if (ContractoBL.ExistContractÉmpresa(contratoDTO.EmpresaID))
+            
+            if (!ContractoBL.ExistContractEmpresa(contratoDTO.EmpresaID))
             {
 
 
