@@ -29,7 +29,7 @@ namespace ciclojobs.BL.Implementations
         {
             var empresa = empresaRepository.ObtenerEmpresaStripeID(invoice.CustomerId);
             var contratoid = ContratoRepository.ObtenerContratStripeID(empresa.StripeID);
-            var factura = new Facturas
+            Facturas factura = new Facturas
             {
                 EmpresaID = empresa.id,
                 ContratoID = contratoid.id,
