@@ -87,10 +87,7 @@ namespace ciclosjobs.API.Controllers
                 stripeEvent = EventUtility.ConstructEvent(json,
                     Request.Headers["Stripe-Signature"], endpointSecret);
 
-<<<<<<< HEAD
                 Console.WriteLine("Tipo del evento "+stripeEvent.Type);
-=======
->>>>>>> parent of 50d5313 (Update ContractController.cs)
                 // Handle the event
                 if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
@@ -114,7 +111,7 @@ namespace ciclosjobs.API.Controllers
                     Console.WriteLine("Unhandled event type: {0}", stripeEvent.Type);
                 }
 
-                return Ok("Hola aniadido "+ stripeEvent.Type);
+                return Ok();
             }
             catch (StripeException e)
             {
