@@ -27,11 +27,11 @@ namespace ciclojobs.BL.Implementations
 
         public void PagoSuccess(Invoice invoice)
         {
-            var idempresa = empresaRepository.ObtenerEmpresaStripeID(invoice.CustomerId).id;
-            var contratoid = ContratoRepository.ObtenerContratStripeID(invoice.CustomerId);
+            var empresa = empresaRepository.ObtenerEmpresaStripeID(invoice.CustomerId);
+            var contratoid = ContratoRepository.ObtenerContratStripeID(empresa.StripeID);
             var factura = new Facturas
             {
-                EmpresaID = idempresa,
+                EmpresaID = empresa.id,
                 ContratoID = contratoid.id,
                 FechaCreacion = invoice.Created,
                 FechaPago = (DateTime)invoice.StatusTransitions.PaidAt,
