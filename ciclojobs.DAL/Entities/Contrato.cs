@@ -15,8 +15,6 @@ namespace ciclojobs.DAL.Entities
         public Empresa Empresa { get; set; }
         public DateTime FehchaAlta { get; set; }
         public DateTime FechaBaja { get; set; }
-        public int EstadoID { set; get; }
-        [ForeignKey("EstadoID")]
         public ContratoEstado EstadoContrato { get; set; }
         public string StripeId { get; set; }
     }

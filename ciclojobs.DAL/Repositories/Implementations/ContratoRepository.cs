@@ -22,9 +22,21 @@ namespace ciclojobs.DAL.Repositories.Implementations
             _context.SaveChanges();
         }
 
-        public bool ExistContract(Contrato contrato)
+        public void CrearFactura(Facturas factura)
         {
-           return  _context.Contrato.Any(u => u.StripeId == contrato.StripeId && u.EmpresaID == contrato.EmpresaID);
+            _context.Facturas.Add(factura);
+            Console.WriteLine("aniadido en la base de datos");
+            _context.SaveChanges();
+        }
+
+        public bool ExistContractÉmpresa(int empresaid)
+        {
+           return  _context.Contrato.Any(u => u.EmpresaID == empresaid && u.FechaBaja >DateTime.Now);
+        }
+
+        public Contrato ObtenerContratStripeID(string customerId)
+        {
+            return _context.Contrato.FirstOrDefault(u => u.StripeId== customerId);
         }
     }
 }

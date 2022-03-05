@@ -27,9 +27,18 @@ namespace ciclojobs.BL.Implementations
 
         public void PagoSuccess(Invoice invoice)
         {
+            var idempresa = empresaRepository.ObtenerEmpresaStripeID(invoice.CustomerId).id;
+            var contratoid = ContratoRepository.ObtenerContratStripeID(invoice.CustomerId);
+            var factura = new Facturas
+            {
+                EmpresaID = idempresa,
+                ContratoID = contratoid.id,
+                FechaCreacion = invoice.Created,
+                FechaPago = (DateTime)invoice.StatusTransitions.PaidAt,
+                StripePriceID = invoice.Lines.Data[0].Price.Id
 
-            //invoice.Lines.Data[0].Period.Start;
-            //invoice.Lines.Data[0].Period.End;
+            };
+            ContratoRepository.CrearFactura(factura);
         }
 
         public void PosiblePagoCancelacion(PaymentIntent paymentIntent)
@@ -66,6 +75,7 @@ namespace ciclojobs.BL.Implementations
             var idempresa = empresaRepository.ObtenerEmpresaStripeID(subscription.CustomerId).id;
             var contrato = new Contrato
             {
+                
                 FechaBaja = subscription.CurrentPeriodEnd,
                 FehchaAlta = subscription.CurrentPeriodStart,
                 StripeId = subscription.Id,
@@ -78,9 +88,9 @@ namespace ciclojobs.BL.Implementations
             ContratoRepository.CrearContrato(contrato);
         }
 
-        public bool ExistContract(ContratoDTO contratoDTO)
+        public bool ExistContractÉmpresa(int empresaid)
         {
-            return ContratoRepository.ExistContract(mapper.Map<ContratoDTO, Contrato>(contratoDTO));
+            return ContratoRepository.ExistContractÉmpresa(empresaid);
         }
     }
 }

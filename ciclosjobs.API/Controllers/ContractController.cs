@@ -32,6 +32,8 @@ namespace ciclosjobs.API.Controllers
         [AllowAnonymous]
         public ActionResult<string> CrearPago(ContratoDTO contratoDTO)
         {
+            if (ContractoBL.ExistContractÉmpresa(contratoDTO.EmpresaID))
+            {
 
 
             contratoDTO = ContractoBL.Stripe(contratoDTO);
@@ -63,8 +65,11 @@ namespace ciclosjobs.API.Controllers
             var service = new SessionService();
             var session = service.Create(options);
             return Ok(session.Url);
-          
-          
+            }
+            else
+            {
+                return BadRequest();
+            }
         }
 
 
@@ -93,12 +98,6 @@ namespace ciclosjobs.API.Controllers
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
                     ContractoBL.PagoSuccess(invoice);
-                }
-                //Esto no
-                else if (stripeEvent.Type == Events.PaymentIntentSucceeded)
-                {
-                    var paymentIntent = stripeEvent.Data.Object as PaymentIntent;
-                    ContractoBL.PosiblePagoCancelacion(paymentIntent);
                 }
                 // ... handle other event types
                 else

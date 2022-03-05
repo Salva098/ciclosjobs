@@ -66,4 +66,3 @@ C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\Sy
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\salva\source\repos\ciclosjobs\ciclosjobs.API\obj\Debug\netcoreapp3.1\ciclosjobs.API.csproj.CopyComplete
