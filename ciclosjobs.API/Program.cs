@@ -18,9 +18,13 @@ namespace ciclosjobs.API
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    config.AddJsonFile("ciclosjobs.API/appsettings.json", optional: false);
+                })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("https://*:5001", "https://*:5000");
+                    webBuilder.UseUrls("https://51.254.98.153:5001", "http://51.254.98.153:5000");
                     webBuilder.UseStartup<Startup>();
                 });
     }
