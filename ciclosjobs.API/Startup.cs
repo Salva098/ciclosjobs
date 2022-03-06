@@ -132,13 +132,13 @@ namespace ciclosjobs.API
 
             app.UseCors("AllowSetOrigins");
 
-            app.UseAuthorization();
-            app.UseAuthentication();
-
             app.UseCors(x => x
             .AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
+
+            app.UseAuthorization();
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
