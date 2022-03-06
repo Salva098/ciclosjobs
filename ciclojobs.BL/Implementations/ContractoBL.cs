@@ -29,6 +29,10 @@ namespace ciclojobs.BL.Implementations
         {
             var empresa = empresaRepository.ObtenerEmpresaStripeID(invoice.CustomerId);
             var contratoid = ContratoRepository.ObtenerContratStripeID(empresa.StripeID);
+            Console.WriteLine("fecha => " + (DateTime)invoice.StatusTransitions.PaidAt);
+
+            
+            
             Facturas factura = new Facturas
             {
                 EmpresaID = empresa.id,
