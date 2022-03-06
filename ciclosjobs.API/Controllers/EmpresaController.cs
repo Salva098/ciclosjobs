@@ -27,11 +27,12 @@ namespace ciclosjobs.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Register(EmpresaDTORegistro empresadto)
+        public ActionResult<EmpresaDTO> Register(EmpresaDTORegistro empresadto)
         {
-            if (empresaBL.CrearEmpresa(empresadto))
+            EmpresaDTO emrpesa = null;
+            if ((emrpesa=empresaBL.CrearEmpresa(empresadto))!=null)
             {
-                return Ok();
+                return Ok(emrpesa);
             }
             else
             {

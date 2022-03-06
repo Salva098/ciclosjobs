@@ -59,11 +59,11 @@ namespace ciclojobs.DAL.Repositories.Implementations
             return _context.Empresa.Where(u => u.email == email).Select(u => u.verificado).FirstOrDefault();
         }
 
-        public bool CrearEmpresa(Empresa empresa)
+        public Empresa CrearEmpresa(Empresa empresa)
         {
             var u = _context.Empresa.Add(empresa);
             _context.SaveChanges();
-            return true;
+            return u.Entity;
         }
 
         public bool EliminarEmpresa(Empresa empresa)

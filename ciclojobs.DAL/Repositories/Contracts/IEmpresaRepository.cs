@@ -8,7 +8,7 @@ namespace ciclojobs.DAL.Repositories.Contracts
     public interface IEmpresaRepository
     {
         bool ExistEmpresa(Empresa empresa);
-        bool CrearEmpresa(Empresa empresa);
+        Empresa CrearEmpresa(Empresa empresa);
 
         bool LoginEmpresa(Empresa empresa);
         Empresa ObtenerEmpresa(int id);

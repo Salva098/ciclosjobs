@@ -43,17 +43,17 @@ namespace ciclojobs.BL.Implementations
             }
         }
 
-        public bool CrearEmpresa(EmpresaDTORegistro empresadto)
+        public EmpresaDTO CrearEmpresa(EmpresaDTORegistro empresadto)
         {
             var empresa = mapper.Map<EmpresaDTORegistro, Empresa>(empresadto);
             empresa.contrasena = PasswordGenerator.Hash(empresa.contrasena);
             if (!this.EmpresaRepository.ExistEmpresa(empresa))
             {
-                return EmpresaRepository.CrearEmpresa(empresa);
+                return mapper.Map<Empresa, EmpresaDTO>(EmpresaRepository.CrearEmpresa(empresa));
             }
             else
             {
-                return false;
+                return null;
             }
         }
 
