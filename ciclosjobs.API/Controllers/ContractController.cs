@@ -1,4 +1,5 @@
 ﻿using ciclojobs.BL.Contracts;
+using ciclosjobs.Core.DTO;
 using ciclosjobs.Core.DTO.ContractoDTO;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -30,13 +31,13 @@ namespace ciclosjobs.API.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult<string> CrearPago(ContratoDTO contratoDTO)
+        public ActionResult<string> CrearPago(EmpresaDTO empresa)
         {
             
-            if (!ContractoBL.ExistContractEmpresa(contratoDTO.EmpresaID))
+            if (!ContractoBL.ExistContractEmpresa(empresa.id))
             {
-
-
+                ContratoDTO contratoDTO = new ContratoDTO();
+                contratoDTO.EmpresaID = empresa.id;
             contratoDTO = ContractoBL.Stripe(contratoDTO);
             var options = new SessionCreateOptions
             {
