@@ -93,11 +93,19 @@ namespace ciclosjobs.API.Controllers
                 if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
+                    Console.WriteLine("EmpresaID => " + empresa.id);
+                    Console.WriteLine("EmpresaID => " + empresa.id);
+                    Console.WriteLine("EmpresaID => " + empresa.id);
+
                     ContractoBL.SubscriptionCreated(subscription);
                 }
                 else if (stripeEvent.Type == Events.InvoicePaid)
                 {
                     var invoice = stripeEvent.Data.Object as Invoice;
+                    Console.WriteLine("ContratoID => " + invoice.SubscriptionId);
+                    Console.WriteLine("FechaCreacion => " + invoice.Created);
+                    Console.WriteLine("FechaPago => " + (DateTime)invoice.StatusTransitions.PaidAt);
+                    Console.WriteLine("StripePriceID => " + invoice.Lines.Data[0].Price.Id);
                     ContractoBL.PagoSuccess(invoice);
                 }
                 // ... handle other event types
