@@ -28,7 +28,7 @@ namespace ciclojobs.BL.Implementations
         public void PagoSuccess(Invoice invoice)
         {
             var empresa = empresaRepository.ObtenerEmpresaStripeID(invoice.CustomerId);
-            var contrato = ContratoRepository.ObtenerContratStripeID(invoice.Subscription);
+            var contrato = ContratoRepository.ObtenerContratStripeID(invoice.Subscription.Id);
             Console.WriteLine("EmpresaID => " + empresa.id);
             Console.WriteLine("stripeID => " + empresa.StripeID);
             Console.WriteLine("ContratoID => " + contrato.id);
