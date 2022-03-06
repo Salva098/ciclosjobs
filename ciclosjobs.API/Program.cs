@@ -24,7 +24,7 @@ namespace ciclosjobs.API
                 })
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseUrls("https://51.254.98.153:5001", "http://51.254.98.153:5000");
+                    webBuilder.UseUrls("http://51.254.98.153:5000");
                     webBuilder.UseStartup<Startup>();
                 });
     }
