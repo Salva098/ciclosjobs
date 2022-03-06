@@ -93,9 +93,6 @@ namespace ciclosjobs.API.Controllers
                 if (stripeEvent.Type == Events.CustomerSubscriptionCreated)
                 {
                     var subscription = stripeEvent.Data.Object as Subscription;
-                    Console.WriteLine("EmpresaID => " + empresa.id);
-                    Console.WriteLine("EmpresaID => " + empresa.id);
-                    Console.WriteLine("EmpresaID => " + empresa.id);
 
                     ContractoBL.SubscriptionCreated(subscription);
                 }
