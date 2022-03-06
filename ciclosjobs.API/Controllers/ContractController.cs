@@ -63,9 +63,8 @@ namespace ciclosjobs.API.Controllers
 
     
 
-            var service = new SessionService();
-            var session = service.Create(options);
-            return Ok(session.Url);
+            var service = new SessionService().CreateAsync(options).Result.Url;
+                return Ok(service);
             }
             else
             {
