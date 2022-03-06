@@ -36,7 +36,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
 
         public Contrato ObtenerContratStripeID(string customerId)
         {
-            return _context.Contrato.FirstOrDefault(u => u.StripeId== customerId);
+            return _context.Contrato.Where(u => u.StripeId== customerId).First();
         }
     }
 }
