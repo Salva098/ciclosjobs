@@ -28,10 +28,10 @@ namespace ciclojobs.BL.Implementations
         public void PagoSuccess(Invoice invoice)
         {
             var empresa = empresaRepository.ObtenerEmpresaStripeID(invoice.CustomerId);
-            var contratoid = ContratoRepository.ObtenerContratStripeID(empresa.StripeID);
+            var contrato = ContratoRepository.ObtenerContratStripeID(invoice.Subscription);
             Console.WriteLine("EmpresaID => " + empresa.id);
             Console.WriteLine("stripeID => " + empresa.StripeID);
-            Console.WriteLine("ContratoID => " + contratoid.id);
+            Console.WriteLine("ContratoID => " + contrato.id);
             Console.WriteLine("FechaCreacion => " + invoice.Created);
             Console.WriteLine("FechaPago => " + (DateTime)invoice.StatusTransitions.PaidAt);
             Console.WriteLine("StripePriceID => " + invoice.Lines.Data[0].Price.Id);
@@ -41,7 +41,7 @@ namespace ciclojobs.BL.Implementations
             Facturas factura = new Facturas
             {
                 EmpresaID = empresa.id,
-                ContratoID = contratoid.id,
+                ContratoID = contrato.id,
                 FechaCreacion = invoice.Created,
                 FechaPago = (DateTime)invoice.StatusTransitions.PaidAt,
                 StripePriceID = invoice.Lines.Data[0].Price.Id
