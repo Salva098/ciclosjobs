@@ -18,6 +18,7 @@ namespace ciclojobs.DAL.Entities
         public DbSet<TipoCiclo> TipoCiclo { get; set; }
         public DbSet<Facturas> Facturas { get; set; }
         public DbSet<Contrato> Contrato { get; set; }
+        public DbSet<Mensaje> Mensajes { get; set; }
 
 
 

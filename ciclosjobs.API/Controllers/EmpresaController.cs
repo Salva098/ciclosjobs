@@ -17,7 +17,7 @@ namespace ciclosjobs.API.Controllers
     public class EmpresaController : ControllerBase
     {
         private IEmpresaBL empresaBL;
-        public IJwtBearer JwtBearer { get; set; }
+        public IJwtBearer JwtBearer;
         public EmpresaController(IEmpresaBL EmpresaBL, IJwtBearer JwtBearer)
         {
             this.empresaBL = EmpresaBL;

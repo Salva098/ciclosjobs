@@ -6,6 +6,7 @@ using ciclosjobs.Core.DTO.ContractoDTO;
 using ciclosjobs.Core.DTO.FacturaDTO;
 using ciclosjobs.Core.DTO.FamiliaProfeDTO;
 using ciclosjobs.Core.DTO.InscripcionesDTO;
+using ciclosjobs.Core.DTO.MensajeDTO;
 using ciclosjobs.Core.DTO.ProvinciasDTO;
 using System;
 using System.Collections.Generic;
@@ -81,6 +82,12 @@ namespace ciclosjobs.Core.AutoMapperProfiles
 
             CreateMap<Contrato, ContratoDTO>();
             CreateMap<ContratoDTO, Contrato>();
+
+            CreateMap<Mensaje, MensajeDTO>();
+            CreateMap<MensajeDTO, Mensaje>();
+
+            CreateMap<MensajeDTOCreate, Mensaje>();
+            CreateMap<Mensaje, MensajeDTOCreate>();
 
 
         }

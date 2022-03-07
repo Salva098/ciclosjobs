@@ -108,6 +108,9 @@ namespace ciclosjobs.API
             services.AddScoped<IEmailSender, EmailSender>();
             services.AddScoped<IContractoBL, StripeBL>();
             services.AddScoped<IStripeRepository, StripeRepository>();
+            services.AddScoped<IMensajesRepository, MensajesRepository>();
+            services.AddScoped<IMensajesBL, MensajesBL>();
+
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
 
         }
