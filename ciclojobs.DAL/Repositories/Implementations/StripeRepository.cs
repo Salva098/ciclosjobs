@@ -7,10 +7,10 @@ using System.Text;
 
 namespace ciclojobs.DAL.Repositories.Implementations
 {
-    public class ContratoRepository : IContratoRepository
+    public class StripeRepository : IStripeRepository
     {
         public ciclojobsContext _context;
-        public ContratoRepository(ciclojobsContext _context)
+        public StripeRepository(ciclojobsContext _context)
         {
             this._context = _context;
         }

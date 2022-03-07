@@ -5,7 +5,7 @@ using System.Text;
 
 namespace ciclojobs.DAL.Repositories.Contracts
 {
-    public interface IContratoRepository
+    public interface IStripeRepository
     {
         bool ExistContractEmpresa(int empresaid);
         void CrearContrato(Contrato contrato);
