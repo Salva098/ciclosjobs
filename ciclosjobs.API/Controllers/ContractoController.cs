@@ -136,7 +136,7 @@ namespace ciclosjobs.API.Controllers
             }
             catch (StripeException e)
             {
-                return BadRequest();
+                return Unauthorized();
             }
         }
     }
