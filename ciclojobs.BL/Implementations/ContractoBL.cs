@@ -2,6 +2,7 @@
 using ciclojobs.BL.Contracts;
 using ciclojobs.DAL.Entities;
 using ciclojobs.DAL.Repositories.Contracts;
+using ciclosjobs.Core.DTO;
 using ciclosjobs.Core.DTO.ContractoDTO;
 using Microsoft.Extensions.Configuration;
 using Stripe;
@@ -61,7 +62,7 @@ namespace ciclojobs.BL.Implementations
             StripeConfiguration.ApiKey = Configuration["Stripe:SecretKey"];
 
             #region Crear customer si no existe
-            var empresa = empresaRepository.ObtenerEmpresa(contratoDTO.EmpresaID);
+            var empresa = empresaRepository.ObtenerEmpresa(contratoDTO.Empresa.id);
             if (empresa.StripeID == null)
             {
                 var optionsCustomer = new CustomerCreateOptions
@@ -74,7 +75,7 @@ namespace ciclojobs.BL.Implementations
                 empresa.StripeID = customer.Id;
                 empresaRepository.ActualizarEmpresa(empresa);
             }
-            contratoDTO.Empresa = empresa;
+            contratoDTO.Empresa = mapper.Map<Empresa, EmpresaDTO>(empresa);
             #endregion
             return contratoDTO;
         }
