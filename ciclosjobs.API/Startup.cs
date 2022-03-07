@@ -106,7 +106,7 @@ namespace ciclosjobs.API
             services.AddScoped<IInscripcioneBL, InscripcionesBL>();
             services.AddScoped<IJwtBearer, JwtBearer>();
             services.AddScoped<IEmailSender, EmailSender>();
-            services.AddScoped<IStripeBL, StripeBL>();
+            services.AddScoped<IContractoBL, ContractoBL>();
             services.AddScoped<IContratoRepository, ContratoRepository>();
             services.AddScoped<IPasswordGenerator, PasswordGenerator>();
 

@@ -11,13 +11,13 @@ using System.Text;
 
 namespace ciclojobs.BL.Implementations
 {
-    public class StripeBL : IStripeBL
+    public class ContractoBL : IContractoBL
     {
         public IMapper mapper { get; set; }
         public IConfiguration Configuration { get; set; }
         public IContratoRepository ContratoRepository { get; set; }
         public IEmpresaRepository empresaRepository { get; set; }
-        public StripeBL(IConfiguration Configuration, IContratoRepository ContratoRepository, IEmpresaRepository empresaRepository, IMapper mapper)
+        public ContractoBL(IConfiguration Configuration, IContratoRepository ContratoRepository, IEmpresaRepository empresaRepository, IMapper mapper)
         {
             this.mapper = mapper;
             this.Configuration = Configuration;

@@ -18,12 +18,12 @@ namespace ciclosjobs.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class StripeController : ControllerBase
+    public class ContractoController : ControllerBase
     {
         public IJwtBearer JwtBearer { get; set; }
-        public IStripeBL ContractoBL { get; set; }
+        public IContractoBL ContractoBL { get; set; }
         public IConfiguration Configuration { get; set; }
-        public StripeController(IStripeBL ContractoBL, IConfiguration Configuration, IJwtBearer JwtBearer)
+        public ContractoController(IContractoBL ContractoBL, IConfiguration Configuration, IJwtBearer JwtBearer)
         {
             this.ContractoBL = ContractoBL;
             this.JwtBearer = JwtBearer;
