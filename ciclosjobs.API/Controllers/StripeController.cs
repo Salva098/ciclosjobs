@@ -1,6 +1,7 @@
 ﻿using ciclojobs.BL.Contracts;
 using ciclosjobs.Core.DTO;
 using ciclosjobs.Core.DTO.ContractoDTO;
+using ciclosjobs.Core.Security;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,16 +18,34 @@ namespace ciclosjobs.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ContractController : ControllerBase
+    public class StripeController : ControllerBase
     {
-        public IContractoBL ContractoBL { get; set; }
+        public IJwtBearer JwtBearer { get; set; }
+        public IStripeBL ContractoBL { get; set; }
         public IConfiguration Configuration { get; set; }
-        public ContractController(IContractoBL ContractoBL, IConfiguration Configuration)
+        public StripeController(IStripeBL ContractoBL, IConfiguration Configuration, IJwtBearer JwtBearer)
         {
             this.ContractoBL = ContractoBL;
+            this.JwtBearer = JwtBearer;
             this.Configuration = Configuration;
         }
 
+        [HttpGet]
+        [Route("Exist")]
+        [Authorize]
+        public ActionResult existcontract()
+        {
+            int id = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
+
+           if(ContractoBL.ExistContractEmpresa(id))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest();
+            }
+        }
 
 
         [HttpPost]

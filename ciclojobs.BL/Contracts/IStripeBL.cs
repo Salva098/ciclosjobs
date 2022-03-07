@@ -6,7 +6,7 @@ using System.Text;
 
 namespace ciclojobs.BL.Contracts
 {
-    public interface IContractoBL
+    public interface IStripeBL
     {
         ContratoDTO Stripe(ContratoDTO contratoDTO);
         void PagoSuccess(Invoice invoice);
