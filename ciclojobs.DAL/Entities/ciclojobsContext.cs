@@ -35,7 +35,7 @@ namespace ciclojobs.DAL.Entities
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseMySql("server=localhost;port=3306;user=root;password=123456;database=ciclojobs", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql"));
+                optionsBuilder.UseMySql("server=51.254.98.153;port=3306;user=myuser;password=123456789;database=ciclojobs", Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.26-mysql"));
             }
         }
 
