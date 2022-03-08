@@ -37,15 +37,16 @@ namespace ciclojobs.BL.Implementations
             Console.WriteLine("FechaCreacion => " + invoice.Created);
             Console.WriteLine("FechaPago => " + (DateTime)invoice.StatusTransitions.PaidAt);
             Console.WriteLine("StripePriceID => " + invoice.Lines.Data[0].Price.Id);
+            DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
 
-            
-            
+
+
             Facturas factura = new Facturas
             {
                 EmpresaID = empresa.id,
                 ContratoID = contrato.id,
                 FechaCreacion = invoice.Created,
-                FechaFin= (DateTime)invoice.StatusTransitions.FinalizedAt,
+                FechaFin= dateTime.AddMilliseconds(invoice.Lines.Data[0].Period.End).ToLocalTime() ,
                 FechaPago = (DateTime)invoice.StatusTransitions.PaidAt,
                 StripePriceID = invoice.Lines.Data[0].Price.Id
 
