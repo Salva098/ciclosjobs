@@ -31,7 +31,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
 
         public bool ExistFactruasEmpresa(int empresaid)
         {
-           return  _context.Facturas.Any(u => u.EmpresaID == empresaid && u.FechaFin >DateTime.Now && u.FechaCreacion< DateTime.Now);
+           return  _context.Facturas.Any(u => u.EmpresaID == empresaid && u.FechaFin >DateTime.Now);
         }
 
         public Contrato ObtenerContratStripeID(string customerId)
