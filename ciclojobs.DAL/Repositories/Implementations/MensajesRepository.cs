@@ -25,8 +25,13 @@ namespace ciclojobs.DAL.Repositories.Implementations
         public List<Mensaje> NoLeidosAlumno(int idalumno)
         {
             return _context.Mensajes
-                .Include(u=>u.Empresa)
-                .Include(u=>u.Alumno)
+                 .Include(u => u.Empresa)
+                .Include(u => u.Empresa.provincias)
+                .Include(u => u.Alumno)
+                .Include(u => u.Alumno.provincia)
+                .Include(u => u.Alumno.ciclo)
+                .Include(u => u.Alumno.ciclo.familia)
+                .Include(u => u.Alumno.ciclo.TipoCiclo)
                 .Where(u => u.alumnoid == idalumno && !u.leido)
                 .ToList();
         }
@@ -46,6 +51,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
         {
             return _context.Mensajes
                 .Include(u => u.Empresa)
+                .Include(u => u.Empresa.provincias)
                 .Include(u => u.Alumno)
                 .Include(u => u.Alumno.provincia)
                 .Include(u => u.Alumno.ciclo)
