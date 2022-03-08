@@ -11,7 +11,6 @@ namespace ciclojobs.BL.Contracts
         ContratoDTO Stripe(ContratoDTO contratoDTO);
         void PagoSuccess(Invoice invoice);
         void SubscriptionCreated(Subscription subscription);
-        void PosiblePagoCancelacion(PaymentIntent paymentIntent);
         bool ExistFactruasEmpresa(int empresaid);
     }
 }
