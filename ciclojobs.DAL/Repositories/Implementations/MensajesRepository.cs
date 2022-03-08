@@ -47,6 +47,11 @@ namespace ciclojobs.DAL.Repositories.Implementations
             return _context.Mensajes
                 .Include(u => u.Empresa)
                 .Include(u => u.Alumno)
+                .Include(u => u.Alumno.provincia)
+                .Include(u => u.Alumno.ciclo)
+                .Include(u => u.Alumno.ciclo.familia)
+                .Include(u => u.Alumno.ciclo.TipoCiclo)
+
                 .Where(u => u.alumnoid == idalumno&&u.id==idmensaje && !u.leido)
                 .AsNoTracking()
                 .First();
