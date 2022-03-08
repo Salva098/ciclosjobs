@@ -45,16 +45,12 @@ namespace ciclojobs.BL.Implementations
                 EmpresaID = empresa.id,
                 ContratoID = contrato.id,
                 FechaCreacion = invoice.Created,
+                FechaFin= (DateTime)invoice.StatusTransitions.FinalizedAt,
                 FechaPago = (DateTime)invoice.StatusTransitions.PaidAt,
                 StripePriceID = invoice.Lines.Data[0].Price.Id
 
             };
             ContratoRepository.CrearFactura(factura);
-        }
-
-        public void PosiblePagoCancelacion(PaymentIntent paymentIntent)
-        {
-            throw new NotImplementedException();
         }
 
         public ContratoDTO Stripe(ContratoDTO contratoDTO)
@@ -99,9 +95,9 @@ namespace ciclojobs.BL.Implementations
             ContratoRepository.CrearContrato(contrato);
         }
 
-        public bool ExistContractEmpresa(int empresaid)
+        public bool ExistFactruasEmpresa(int empresaid)
         {
-            return ContratoRepository.ExistContractEmpresa(empresaid);
+            return ContratoRepository.ExistFactruasEmpresa(empresaid);
         }
     }
 }

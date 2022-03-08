@@ -37,7 +37,7 @@ namespace ciclosjobs.API.Controllers
         {
             int id = JwtBearer.GetEmpresaIdFromToken(Request.Headers["Authorization"].ToString());
 
-           if(ContractoBL.ExistContractEmpresa(id))
+           if(ContractoBL.ExistFactruasEmpresa(id))
             {
                 return Ok();
             }
@@ -53,7 +53,7 @@ namespace ciclosjobs.API.Controllers
         public ActionResult<string> CrearPago(EmpresaDTO empresa)
         {
             
-            if (!ContractoBL.ExistContractEmpresa(empresa.id))
+            if (!ContractoBL.ExistFactruasEmpresa(empresa.id))
             {
 
                 var contratoDTO = new ContratoDTO();
@@ -136,7 +136,7 @@ namespace ciclosjobs.API.Controllers
             }
             catch (StripeException e)
             {
-                return Unauthorized();
+                return BadRequest();
             }
         }
     }

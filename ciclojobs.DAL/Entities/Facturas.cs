@@ -12,6 +12,7 @@ namespace ciclojobs.DAL.Entities
         public int id { get; set; }
         public DateTime FechaCreacion { get; set; }
         public DateTime FechaPago { get; set; }
+        public DateTime FechaFin { get; set; }
 
         public int EmpresaID { get; set; }
 

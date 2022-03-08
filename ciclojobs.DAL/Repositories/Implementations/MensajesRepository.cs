@@ -12,7 +12,7 @@ namespace ciclojobs.DAL.Repositories.Implementations
     {
         public ciclojobsContext _context { get; set; }
    
-        public MensajesRepository()
+        public MensajesRepository(ciclojobsContext _context)
         {
             this._context = _context;
         }

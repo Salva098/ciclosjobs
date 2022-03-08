@@ -29,9 +29,9 @@ namespace ciclojobs.DAL.Repositories.Implementations
             _context.SaveChanges();
         }
 
-        public bool ExistContractEmpresa(int empresaid)
+        public bool ExistFactruasEmpresa(int empresaid)
         {
-           return  _context.Contrato.Any(u => u.EmpresaID == empresaid && u.FechaBaja >DateTime.Now);
+           return  _context.Facturas.Any(u => u.EmpresaID == empresaid && u.FechaFin >DateTime.Now && u.FechaCreacion< DateTime.Now);
         }
 
         public Contrato ObtenerContratStripeID(string customerId)

@@ -2,15 +2,17 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ciclojobs.DAL.Entities;
 
 namespace ciclojobs.DAL.Migrations
 {
     [DbContext(typeof(ciclojobsContext))]
-    partial class ciclojobsContextModelSnapshot : ModelSnapshot
+    [Migration("20220307230859_CrearMensajes")]
+    partial class CrearMensajes
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -193,9 +195,6 @@ namespace ciclojobs.DAL.Migrations
                         .HasColumnType("int");
 
                     b.Property<DateTime>("FechaCreacion")
-                        .HasColumnType("datetime(6)");
-
-                    b.Property<DateTime>("FechaFin")
                         .HasColumnType("datetime(6)");
 
                     b.Property<DateTime>("FechaPago")

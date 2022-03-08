@@ -3,7 +3,7 @@ using ciclojobs.DAL.Entities;
 using ciclosjobs.Core.DTO;
 using ciclosjobs.Core.DTO.CiclosDTO;
 using ciclosjobs.Core.DTO.ContractoDTO;
-using ciclosjobs.Core.DTO.FacturaDTO;
+
 using ciclosjobs.Core.DTO.FamiliaProfeDTO;
 using ciclosjobs.Core.DTO.InscripcionesDTO;
 using ciclosjobs.Core.DTO.MensajeDTO;
@@ -76,9 +76,6 @@ namespace ciclosjobs.Core.AutoMapperProfiles
             CreateMap<Inscripciones, InscripcionesDTOUpdate>();
             CreateMap<InscripcionesDTOUpdate, Inscripciones>();
 
-
-            CreateMap<Facturas, FacturasDTO>();
-            CreateMap<FacturasDTO, Facturas>();
 
             CreateMap<Contrato, ContratoDTO>();
             CreateMap<ContratoDTO, Contrato>();
