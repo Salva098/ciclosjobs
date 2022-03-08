@@ -44,7 +44,7 @@ namespace ciclosjobs.API.Controllers
 
         [HttpPost]
         [Route("LeerMensaje")]
-        public ActionResult<List<MensajeDTO>> LeerMensaje(int idmensaje)
+        public ActionResult LeerMensaje(int idmensaje)
         {
             var idalumno = JwtBearer.GetAlumnoIdFromToken(Request.Headers["Authorization"].ToString());
             if (MensajesBL.LeerMensaje(idalumno,idmensaje))
