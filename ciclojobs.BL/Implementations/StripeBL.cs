@@ -46,7 +46,7 @@ namespace ciclojobs.BL.Implementations
                 EmpresaID = empresa.id,
                 ContratoID = contrato.id,
                 FechaCreacion = invoice.Created,
-                FechaFin= dateTime.AddMilliseconds(invoice.Lines.Data[0].Period.End).ToLocalTime() ,
+                FechaFin= dateTime.AddMilliseconds(invoice.Lines.Data[0].Period.End) ,
                 FechaPago = (DateTime)invoice.StatusTransitions.PaidAt,
                 StripePriceID = invoice.Lines.Data[0].Price.Id
 
