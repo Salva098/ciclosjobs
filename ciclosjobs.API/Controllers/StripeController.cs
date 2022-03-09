@@ -62,8 +62,8 @@ namespace ciclosjobs.API.Controllers
             var options = new SessionCreateOptions
             {
                
-                SuccessUrl = "http://51.254.98.153/",
-                CancelUrl = "http://51.254.98.153/",
+                SuccessUrl = "https://www.ciclojobs.ml/",
+                CancelUrl = "https://www.ciclojobs.ml/",
                 PaymentMethodTypes = new List<string>
                   {
                     "card",
